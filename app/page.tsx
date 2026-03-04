@@ -1,14 +1,75 @@
+import Link from "next/link";
+import ScrollGallery from "./components/ScrollGallery";
+
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white font-sans">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white sm:items-start">
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black">
-            Locta agency
-          </h1>
-          
+    <div className="flex flex-col">
+      {/* Hero text */}
+      <section className="flex flex-col items-center justify-center text-center px-8 py-16 gap-6">
+        <h1
+          style={{
+            textAlign: "center",
+            fontFamily: 'var(--Heading, "Armin Soft")',
+            fontSize: "72px",
+            fontWeight: 600,
+            lineHeight: "100%",
+            letterSpacing: "-1.44px",
+            textTransform: "uppercase",
+            color: "#000",
+          }}
+        >
+          LOCTA MÉDIA<br />INDÉPENDANT LYONNAIS
+        </h1>
+        <Link
+          href="/media/contact"
+          style={{
+            fontFamily: 'var(--Text, "Armin Soft")',
+            fontSize: "var(--Text-Small, 14px)",
+            fontWeight: 600,
+            lineHeight: "normal",
+            textDecoration: "underline",
+            color: "#000",
+          }}
+        >
+          Nous contacter
+        </Link>
+      </section>
+
+      {/* Video with logo overlay */}
+      <section className="w-full px-10 pb-10">
+        <div
+          className="relative w-full overflow-hidden"
+          style={{ height: "550px" }}
+        >
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/video/ski.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        {/* Logo overlay */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="300"
+            height="289"
+            viewBox="0 0 300 289"
+            fill="none"
+            style={{ width: "clamp(120px, 20vw, 300px)", height: "auto" }}
+          >
+            <path
+              d="M299.996 195.546V195.937C283.425 220.107 263.156 242.518 239.722 260.211C229.899 267.622 212.552 279.358 200.269 280.606C188.853 281.764 170.869 273.284 160.22 268.677C139.538 259.735 119.506 249.086 98.4018 241.113C77.2974 233.14 65.9304 229.05 46.4961 242.644C29.4186 254.585 16.4085 272.449 3.86981 288.812H3.09315L0 286.68C25.9349 248.821 50.6532 210.074 77.0011 172.502C84.0763 162.415 91.2682 152.431 99.0662 142.877C99.2548 142.123 98.8642 142.406 98.5903 142.213C83.0617 131.156 65.6925 122.684 50.716 110.823C28.2738 93.0546 21.8586 77.5035 35.5376 50.5989C48.4893 25.1084 75.0393 1.64268 104.7 0.0669212C140.988 -1.86349 166.963 38.4822 195.34 54.8009C216.997 67.2543 230.846 48.7717 244.624 34.2847C248.534 30.1769 252.256 25.8223 256.076 21.6202L256.853 21.6337L259.511 23.9771C238.967 50.2622 215.6 82.2532 179.385 85.2386L178.801 85.8223L178.756 222.154C191.591 238.464 205.98 251.376 228.292 249.553C245.993 248.107 267.143 226.675 278.824 214.204C285.033 207.578 290.716 200.435 296.893 193.773L297.419 193.634L300 195.546H299.996ZM164.759 209.921V82.6573C138.379 68.3318 117.531 30.9536 86.0157 26.9446C59.165 23.5282 39.991 47.6225 61.5713 68.875C79.8923 86.9132 111.313 98.5001 132.633 113.23L134.052 114.904L70.716 204.866C74.2312 203.402 77.468 201.306 80.9473 199.748C99.2413 191.564 117.67 191.663 136.691 197.382C146.536 200.341 155.906 204.776 164.763 209.921H164.759Z"
+              fill="white"
+              style={{ mixBlendMode: "difference" }}
+            />
+          </svg>
         </div>
-      </main>
+        </div>
+      </section>
+
+      <ScrollGallery />
     </div>
   );
 }

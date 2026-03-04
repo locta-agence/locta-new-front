@@ -1,19 +1,62 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import logoSrc from '../../public/logo-white.svg';
+import { useRef, useEffect, useState } from "react";
+
+const bannerMessages = [
+  "Agence créative",
+  "Made in Lyon",
+  "Média indépendant",
+];
+
+const bannerStyle: React.CSSProperties = {
+  fontFamily: 'var(--Text, "Armin Soft")',
+  fontSize: "var(--Text-Tiny, 12px)",
+  fontWeight: 300,
+  lineHeight: "normal",
+};
+
+const linkStyle: React.CSSProperties = {
+  fontFamily: 'var(--Heading, "Armin Soft")',
+  fontSize: "14px",
+  fontWeight: 300,
+  lineHeight: "normal",
+  padding: "3px 6px",
+};
 
 export default function Header() {
   const pathname = usePathname() || "/";
-  const isMedia = pathname.startsWith("/media");
   const isAgence = pathname.startsWith("/agence");
 
+  const mediaRef = useRef<HTMLAnchorElement>(null);
+  const agenceRef = useRef<HTMLAnchorElement>(null);
+  const [pill, setPill] = useState({ left: 4, width: 0 });
+
+  useEffect(() => {
+    const el = isAgence ? agenceRef.current : mediaRef.current;
+    if (el) setPill({ left: el.offsetLeft, width: el.offsetWidth });
+  }, [isAgence]);
+
+  const [msgIndex, setMsgIndex] = useState(0);
+  const [animClass, setAnimClass] = useState("banner-enter");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAnimClass("banner-exit");
+      setTimeout(() => {
+        setMsgIndex((i) => (i + 1) % bannerMessages.length);
+        setAnimClass("banner-enter");
+      }, 400);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   const mediaMenu = [
-    { label: "Evenement", href: "/media/evenement" },
-    { label: "Local Talent", href: "/media/local-talent" },
+    { label: "Évènements", href: "/media/evenement" },
+    { label: "Patenariats", href: "/media/evenement" },
+    { label: "Local talent", href: "/media/local-talent" },
     { label: "Articles", href: "/media/articles" },
-    { label: "A propos", href: "/media/a-propos" },
+    { label: "À propos", href: "/media/a-propos" },
     { label: "Contact", href: "/media/contact" },
   ];
 
@@ -24,45 +67,69 @@ export default function Header() {
     { label: "Contact", href: "/agence/contact" },
   ];
 
+  const activeMenu = isAgence ? agenceMenu : mediaMenu;
+
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-neutral-800">
-      <nav className="w-full mx-auto px-16 py-4 flex items-center justify-between">
-        <ul className="flex gap-4 text-md font-semibold text-neutral-800 justify-center items-center">
-          <Link href="/" className="flex items-center">
-            <Image className="invert" width={30} alt="logo" src={logoSrc}/>
+    <header className="sticky top-0 z-50">
+      {/* Top banner */}
+      <div className="bg-black flex items-center justify-center overflow-hidden" style={{ height: "45px" }}>
+        <span key={msgIndex} className={animClass} style={bannerStyle}>
+          {bannerMessages[msgIndex]}
+        </span>
+      </div>
+
+      {/* Main nav */}
+      <nav className="bg-white w-full px-10 flex items-center justify-between" style={{ height: "70px" }}>
+        {/* Left: logo + section pills */}
+        <div className="flex items-center gap-3">
+          <Link href="/" style={{ color: "var(--text, #000)", fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "20px", fontWeight: 600, lineHeight: "100%", textTransform: "uppercase" }}>
+            LOCTA
           </Link>
-          <li>
-            <Link href="/media" className={`hover:text-black transition ${isMedia ? "underline" : ""}`}>MEDIA</Link>
-          </li>
-          <li><span className="text-neutral-500">|</span></li>
-          <li>
-            <Link href="/agence" className={`hover:text-black transition ${isAgence ? "underline" : ""}`}>AGENCE</Link>
-          </li>
-        </ul>
+          <div className="relative flex items-center bg-black ml-1" style={{ padding: "4px", gap: "0px", borderRadius: "30px" }}>
+            {/* Sliding white pill */}
+            <div
+              className="absolute bg-white transition-all duration-300 ease-in-out"
+              style={{
+                borderRadius: "30px",
+                top: "4px",
+                bottom: "4px",
+                left: pill.left,
+                width: pill.width,
+              }}
+            />
+            <Link
+              ref={mediaRef}
+              href="/media"
+              className={`relative z-10 transition-colors duration-300 ${isAgence ? "text-white" : "text-black"}`}
+              style={linkStyle}
+            >
+              MEDIA
+            </Link>
+            <Link
+              ref={agenceRef}
+              href="/agence"
+              className={`relative z-10 transition-colors duration-300 ${isAgence ? "text-black" : "text-white"}`}
+              style={linkStyle}
+            >
+              AGENCE
+            </Link>
+          </div>
+        </div>
 
-        <ul className="flex gap-8 text-sm font-medium text-neutral-800">
-          {isMedia && mediaMenu.map((item) => (
+        {/* Right: nav links */}
+        <ul className="flex gap-7 text-sm text-neutral-800 items-center">
+          {activeMenu.map((item) => (
             <li key={item.href}>
-              <Link href={item.href} className="hover:text-black transition">{item.label}</Link>
+              <Link
+                href={item.href}
+                className={`hover:text-black transition ${
+                  item.label === "Contact" ? "font-bold" : "font-normal"
+                } ${pathname === item.href ? "underline underline-offset-4" : ""}`}
+              >
+                {item.label}
+              </Link>
             </li>
           ))}
-
-          {isAgence && agenceMenu.map((item) => (
-            <li key={item.href}>
-              <Link href={item.href} className="hover:text-black transition">{item.label}</Link>
-            </li>
-          ))}
-
-          {/* Si aucune section active, on peut afficher un menu par défaut (facultatif) */}
-          {!isMedia && !isAgence && (
-            <>
-              <li><Link href="/media/evenement" className="hover:text-black transition">Evenement</Link></li>
-              <li><Link href="/media/local-talent" className="hover:text-black transition">Local Talent</Link></li>
-              <li><Link href="/media/articles" className="hover:text-black transition">Articles</Link></li>
-              <li><Link href="/media/a-propos" className="hover:text-black transition">A propos</Link></li>
-              <li><Link href="/media/contact" className="hover:text-black transition">Contact</Link></li>
-            </>
-          )}
         </ul>
       </nav>
     </header>
