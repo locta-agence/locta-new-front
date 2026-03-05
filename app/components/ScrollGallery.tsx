@@ -3,24 +3,51 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 
 const items = [
-  { name: "KIMANI", image: "/images/kimani.jpg", href: "#" },
-  { name: "ARTISTE 2", image: "/images/artiste2.jpg", href: "#" },
-  { name: "ARTISTE 3", image: "/images/artiste3.jpg", href: "#" },
-  { name: "ARTISTE 4", image: "/images/artiste4.jpg", href: "#" },
-  { name: "ARTISTE 5", image: "/images/artiste5.jpg", href: "#" },
+  { name: "ARTISTE 1", image: "/images/134f8f4eb69029543e7dce8d7ab181d3b98565d6.jpg", href: "#" },
+  { name: "ARTISTE 2", image: "/images/img-21.png", href: "#" },
+  { name: "ARTISTE 3", image: "/images/source_imgi_69_442171572_983153753516259_113050789989027832_n.jpg", href: "#" },
+  { name: "ARTISTE 4", image: "/images/1bf71634184186caa805f3c32ce4e9bbc631740c.jpg", href: "#" },
+  { name: "ARTISTE 5", image: "/images/beeb9bba61fc7e58eeabf6a446cdc5f64b22af7b.png", href: "#" },
+  { name: "ARTISTE 6", image: "/images/134f8f4eb69029543e7dce8d7ab181d3b98565d6-1.jpg", href: "#" },
 ];
 
-const CENTER = 570;
 const LARGE_H = 483.636;
 const LARGE_W = 380;
 const SMALL_H = 280;
 const SMALL_W = 220;
 const GAP = 24;
+const PAD = 24;
+
+function computeLayout(active: number) {
+  const hasAbove = active > 0;
+  const hasBelow = active < items.length - 1;
+
+  let center: number;
+  let height: number;
+
+  if (hasAbove && hasBelow) {
+    center = PAD + SMALL_H + GAP + LARGE_H / 2;
+    height = PAD + SMALL_H + GAP + LARGE_H + GAP + SMALL_H + PAD;
+  } else if (hasAbove) {
+    center = PAD + SMALL_H + GAP + LARGE_H / 2;
+    height = PAD + SMALL_H + GAP + LARGE_H + PAD;
+  } else if (hasBelow) {
+    center = PAD + LARGE_H / 2;
+    height = PAD + LARGE_H + GAP + SMALL_H + PAD;
+  } else {
+    center = PAD + LARGE_H / 2;
+    height = PAD + LARGE_H + PAD;
+  }
+
+  return { center, height };
+}
 
 export default function ScrollGallery() {
   const [active, setActive] = useState(0);
   const photoAreaRef = useRef<HTMLDivElement>(null);
   const isThrottled = useRef(false);
+
+  const { center, height } = computeLayout(active);
 
   const handleWheel = useCallback((e: WheelEvent) => {
     e.preventDefault();
@@ -52,11 +79,11 @@ export default function ScrollGallery() {
 
     let top: number;
     if (isActive) {
-      top = CENTER - LARGE_H / 2;
+      top = center - LARGE_H / 2;
     } else if (diff === -1) {
-      top = CENTER - LARGE_H / 2 - GAP - SMALL_H;
+      top = center - LARGE_H / 2 - GAP - SMALL_H;
     } else {
-      top = CENTER + LARGE_H / 2 + GAP;
+      top = center + LARGE_H / 2 + GAP;
     }
 
     return {
@@ -75,18 +102,19 @@ export default function ScrollGallery() {
   };
 
   return (
-    <section className="w-full" style={{ height: "1140px" }}>
+    <section className="w-full" style={{ height, transition: "height 0.5s cubic-bezier(0.4, 0, 0.2, 1)" }}>
       <div
         className="w-full h-full grid"
         style={{ gridTemplateColumns: "1fr 380px 1fr", padding: "0 80px" }}
       >
-        {/* Left: text (normal scroll) */}
+        {/* Left: text */}
         <div className="relative">
           <div
             style={{
               position: "absolute",
-              top: CENTER,
+              top: center,
               transform: "translateY(-50%)",
+              transition: "top 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
             }}
             className="flex flex-col gap-8"
           >
@@ -111,16 +139,13 @@ export default function ScrollGallery() {
               </p>
             </div>
           </div>
-          <p style={{ position: "absolute", bottom: "80px", fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "13px", fontWeight: 600, letterSpacing: "2px", color: "#000" }}>
-            SCROLL ↓↓↓
-          </p>
         </div>
 
         {/* Center: photo stack — intercepts wheel */}
         <div
           ref={photoAreaRef}
           className="relative"
-          style={{ height: "1140px", cursor: "default", overflow: "hidden" }}
+          style={{ height, cursor: "default", overflow: "hidden", transition: "height 0.5s cubic-bezier(0.4, 0, 0.2, 1)" }}
         >
           {items.map((item, i) => {
             const diff = i - active;
@@ -149,10 +174,10 @@ export default function ScrollGallery() {
               key={item.name}
               style={{
                 position: "absolute",
-                top: CENTER,
+                top: center,
                 transform: "translateY(-50%)",
                 opacity: i === active ? 1 : 0,
-                transition: "opacity 0.4s ease",
+                transition: "opacity 0.4s ease, top 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                 pointerEvents: i === active ? "auto" : "none",
               }}
             >
