@@ -5,7 +5,7 @@ import { partners } from "@/data/partners";
 export default function Page(){
     return (
     <main className="p-8">
-      <h1 className="text-3xl font-bold">Les partenaires Locta</h1>
+      <h1 className="text-3xl font-bold">Les partenaires Locta (TODO)</h1>
 
       <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {partners.map((partners) => (
