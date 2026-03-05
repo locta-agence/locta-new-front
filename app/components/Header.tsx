@@ -119,7 +119,7 @@ export default function Header() {
         {/* Right: nav links */}
         <ul className="flex gap-7 text-sm text-neutral-800 items-center">
           {activeMenu.map((item) => (
-            <li key={item.href}>
+            <li key={`${item.href}-${item.label}`}>
               <Link
                 href={item.href}
                 className={`hover:text-black transition ${

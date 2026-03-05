@@ -1,171 +1,35 @@
-type Event = {
-    id: string;
-    type: string;
-    image: string;
-    titre: string;
-    date: string;
-    description: string;
-}
+export type Event = {
+  id: string;
+  type: string;
+  image: string;
+  titre: string;
+  date: string;
+  description: string;
+};
 
 export const events: Event[] = [
   {
     id: "evt-001",
-    type: "concert",
+    type: "Concert",
     image: "/images/events/event_1.jpg",
-    titre: "Nuit Électro au Quai",
-    date: "2026-04-12",
-    description: "Soirée électro avec trois DJs locaux et un show lumière immersif.",
+    titre: "LOREM IPSUM DOLOR",
+    date: "2026-05-03",
+    description: "Concert live avec lumière scénographique et ambiance immersive.",
   },
   {
     id: "evt-002",
-    type: "musique",
-    image: "/images/events/event_1.jpg",
-    titre: "Jazz sur la Terrasse",
-    date: "2026-04-18",
-    description: "Concert acoustique en plein air avec quartet jazz et invités.",
+    type: "Mode",
+    image: "/images/events/event_portrait.jpg",
+    titre: "LOREM IPSUM DOLOR",
+    date: "2026-05-03",
+    description: "Session photo et performance artistique en format intimiste.",
   },
   {
     id: "evt-003",
-    type: "théatre",
-    image: "/images/events/event_1.jpg",
-    titre: "Les Ombres du Balcon",
-    date: "2026-04-22",
-    description: "Pièce contemporaine en trois actes sur les secrets de voisinage.",
-  },
-  {
-    id: "evt-004",
-    type: "mode",
-    image: "/images/events/event_1.jpg",
-    titre: "Défilé Printemps Urbain",
+    type: "Théâtre",
+    image: "/images/events/event_portrait.jpg",
+    titre: "LOREM IPSUM DOLOR",
     date: "2026-05-03",
-    description: "Présentation de créateurs émergents autour du streetwear chic.",
-  },
-  {
-    id: "evt-005",
-    type: "event",
-    image: "/images/events/event_1.jpg",
-    titre: "Marché des Créateurs",
-    date: "2026-05-07",
-    description: "Stands artisanaux, ateliers DIY et food trucks toute la journée.",
-  },
-  {
-    id: "evt-006",
-    type: "concert",
-    image: "/images/events/event_1.jpg",
-    titre: "Rock au Hangar 9",
-    date: "2026-05-14",
-    description: "Soirée rock indé avec deux groupes français et une première partie.",
-  },
-  {
-    id: "evt-007",
-    type: "musique",
-    image: "/images/events/event_1.jpg",
-    titre: "Piano & Chandelles",
-    date: "2026-05-20",
-    description: "Récital intimiste de piano dans une ambiance à la bougie.",
-  },
-  {
-    id: "evt-008",
-    type: "théatre",
-    image: "/images/events/event_1.jpg",
-    titre: "Comédie de Boulevard",
-    date: "2026-05-26",
-    description: "Une comédie rythmée autour d’un malentendu familial.",
-  },
-  {
-    id: "evt-009",
-    type: "mode",
-    image: "/images/events/event_1.jpg",
-    titre: "Atelier Styling Express",
-    date: "2026-06-02",
-    description: "Session pratique pour apprendre à créer 5 looks avec 10 pièces.",
-  },
-  {
-    id: "evt-010",
-    type: "event",
-    image: "/images/events/event_1.jpg",
-    titre: "Cinéma Plein Air",
-    date: "2026-06-08",
-    description: "Projection d’un classique culte suivie d’un débat avec un critique.",
-  },
-  {
-    id: "evt-011",
-    type: "concert",
-    image: "/images/events/event_1.jpg",
-    titre: "Battle Hip-Hop Live",
-    date: "2026-06-12",
-    description: "Showcase rap, dance battle et open mic en fin de soirée.",
-  },
-  {
-    id: "evt-012",
-    type: "musique",
-    image: "/images/events/event_1.jpg",
-    titre: "Escales Sonores",
-    date: "2026-06-19",
-    description: "Voyage musical entre afrobeat, flamenco et percussions brésiliennes.",
-  },
-  {
-    id: "evt-013",
-    type: "théatre",
-    image: "/images/events/event_1.jpg",
-    titre: "Nuit d’Impro",
-    date: "2026-06-24",
-    description: "Match d’impro interactif avec thèmes tirés au sort par le public.",
-  },
-  {
-    id: "evt-014",
-    type: "mode",
-    image: "/images/events/event_1.jpg",
-    titre: "Pop-Up Vintage",
-    date: "2026-07-01",
-    description: "Sélection de pièces années 80/90 et conseils relooking sur place.",
-  },
-  {
-    id: "evt-015",
-    type: "event",
-    image: "/images/events/event_1.jpg",
-    titre: "Festival Street Food",
-    date: "2026-07-05",
-    description: "Cuisine du monde, concours de recettes et DJ set en clôture.",
-  },
-  {
-    id: "evt-016",
-    type: "concert",
-    image: "/images/events/event_1.jpg",
-    titre: "Symphonie Urbaine",
-    date: "2026-07-11",
-    description: "Orchestre et beatmakers réunis pour une performance hybride.",
-  },
-  {
-    id: "evt-017",
-    type: "musique",
-    image: "/images/events/event_1.jpg",
-    titre: "Folk au Bord de l’Eau",
-    date: "2026-07-16",
-    description: "Concert folk en coucher de soleil avec ambiance chill.",
-  },
-  {
-    id: "evt-018",
-    type: "théatre",
-    image: "/images/events/event_1.jpg",
-    titre: "Scène Jeune Public",
-    date: "2026-07-22",
-    description: "Spectacle familial mêlant marionnettes, chant et narration.",
-  },
-  {
-    id: "evt-019",
-    type: "mode",
-    image: "/images/events/event_1.jpg",
-    titre: "Fashion Talk & Networking",
-    date: "2026-07-28",
-    description: "Table ronde sur la mode durable suivie d’un temps de networking.",
-  },
-  {
-    id: "evt-020",
-    type: "event",
-    image: "/images/events/event_1.jpg",
-    titre: "Summer Closing Party",
-    date: "2026-08-02",
-    description: "Événement de clôture avec live band, animations et surprises.",
+    description: "Expérience scénique contemporaine avec direction artistique marquée.",
   },
 ];
