@@ -1,6 +1,12 @@
 import Image from "next/image";
 import { partners } from "@/data/partners";
 
+const svgMap: Record<string, string> = {
+  instagram: '/images/instagram.svg',
+  linkedin: '/images/linkedIn.svg',
+  tiktok: '/images/tikTok.svg',
+};
+
 
 export default function Page(){
     return (
@@ -27,31 +33,46 @@ export default function Page(){
         </div>
       </section>
 
-      <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {partners.map((partners) => (
-                <article
-                  key={partners.id}
-                  className="overflow-hidden border border-black/10 bg-white"
-                >
-                  <div className="relative h-48 w-full display-flex ">
-                    <Image
-                      src={partners.image}
-                      alt={partners.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-      
-                  <div className="p-4 display-flex">
-                    <p className="text-sm uppercase tracking-wide text-black/60">
-                      {partners.name}
-                    </p>
-                    <h2 className="mt-2 text-xl font-semibold">{partners.name}</h2>
-                    <p className="mt-2 text-sm text-black/80">{partners.description}</p>
-                  </div>
-                </article>
-              ))}
-            </section>
+      <section className="flex flex-col">
+        {partners.map((partner, index) => (
+          <article
+            key={partner.id}
+            className={`self-stretch px-6 pb-8 inline-flex items-center gap-2 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+          >
+            {/* Image avec overlay gradient */}
+            <div className="relative flex-1 min-w-96 min-h-[570px] p-5 bg-gradient-to-b from-black/30 via-zinc-800/0 to-black/30 overflow-hidden">
+              <Image
+                src={partner.image}
+                alt={partner.name}
+                fill
+                className="object-cover -z-10"
+              />
+            </div>
+
+            {/* Contenu texte */}
+            <div className="flex-1 px-10 inline-flex flex-col justify-center items-center gap-6">
+              <h2 className="self-stretch text-center text-6xl font-semibold uppercase leading-[56px]">
+                {partner.name}
+              </h2>
+              <p className="self-stretch text-center text-sm font-light">
+                {partner.description}
+              </p>
+              <a href={partner.site} target="_blank" rel="noopener noreferrer" className="self-stretch text-center text-sm font-light underline">
+                {partner.site}
+              </a>
+              {partner.socials && (
+                <div className="inline-flex justify-center items-center gap-6">
+                  {partner.socials.map((s) => svgMap[s.platform] && (
+                    <a key={s.platform} href={s.url} target="_blank" rel="noopener noreferrer" title={s.platform}>
+                      <Image src={svgMap[s.platform]} alt={s.platform} width={20} height={20} />
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          </article>
+        ))}
+      </section>
 
     </main>
     );
