@@ -11,18 +11,42 @@ const bannerMessages = [
 
 const bannerStyle: React.CSSProperties = {
   fontFamily: 'var(--Text, "Armin Soft")',
-  fontSize: "var(--Text-Tiny, 12px)",
+  fontSize: "12px",
   fontWeight: 300,
   lineHeight: "normal",
 };
 
-const linkStyle: React.CSSProperties = {
+const toggleLinkStyle: React.CSSProperties = {
+  fontFamily: 'var(--Heading, "Armin Soft")',
+  fontSize: "13px",
+  fontWeight: 400,
+  lineHeight: "normal",
+  padding: "4px 14px",
+  whiteSpace: "nowrap",
+};
+
+const navLinkStyle: React.CSSProperties = {
   fontFamily: 'var(--Heading, "Armin Soft")',
   fontSize: "14px",
   fontWeight: 300,
   lineHeight: "normal",
-  padding: "3px 6px",
 };
+
+const mediaMenu = [
+  { label: "Évènements", href: "/media/evenement" },
+  { label: "Partenariats", href: "/media/evenement" },
+  { label: "Local talent", href: "/media/local-talent" },
+  { label: "Articles", href: "/media/articles" },
+  { label: "À propos", href: "/media/a-propos" },
+  { label: "Contact", href: "/media/contact" },
+];
+
+const agenceMenu = [
+  { label: "Offres", href: "/agence/offres" },
+  { label: "Équipe", href: "/agence/equipe" },
+  { label: "Projets", href: "/agence/projets" },
+  { label: "Contact", href: "/agence/contact" },
+];
 
 export default function Header() {
   const pathname = usePathname() || "/";
@@ -51,87 +75,208 @@ export default function Header() {
     return () => clearInterval(interval);
   }, []);
 
-  const mediaMenu = [
-    { label: "Évènements", href: "/media/evenement" },
-    { label: "Patenariats", href: "/media/evenement" },
-    { label: "Local talent", href: "/media/local-talent" },
-    { label: "Articles", href: "/media/articles" },
-    { label: "À propos", href: "/media/a-propos" },
-    { label: "Contact", href: "/media/contact" },
-  ];
-
-  const agenceMenu = [
-    { label: "Offres", href: "/agence/offres" },
-    { label: "Équipe", href: "/agence/equipe" },
-    { label: "Projets", href: "/agence/projets" },
-    { label: "Contact", href: "/agence/contact" },
-  ];
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const activeMenu = isAgence ? agenceMenu : mediaMenu;
+  const contactItem = activeMenu.find((i) => i.label === "Contact");
+  const navItems = activeMenu.filter((i) => i.label !== "Contact");
+
+  // MEDIA : banner noir / nav blanc  — AGENCE : banner blanc / nav noir
+  const bannerBg = isAgence ? "#fff" : "#000";
+  const bannerFg = isAgence ? "#000" : "#fff";
+  const navBg = isAgence ? "#000" : "#fff";
+  const navFg = isAgence ? "#fff" : "#000";
 
   return (
-    <header className="sticky top-0 z-50">
-      {/* Top banner */}
-      <div className="bg-black flex items-center justify-center overflow-hidden" style={{ height: "45px" }}>
-        <span key={msgIndex} className={animClass} style={bannerStyle}>
-          {bannerMessages[msgIndex]}
-        </span>
-      </div>
-
-      {/* Main nav */}
-      <nav className="bg-white w-full px-10 flex items-center justify-between" style={{ height: "70px" }}>
-        {/* Left: logo + section pills */}
-        <div className="flex items-center gap-3">
-          <Link href="/" style={{ color: "var(--text, #000)", fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "20px", fontWeight: 600, lineHeight: "100%", textTransform: "uppercase" }}>
-            LOCTA
-          </Link>
-          <div className="relative flex items-center bg-black ml-1" style={{ padding: "4px", gap: "0px", borderRadius: "30px" }}>
-            {/* Sliding white pill */}
-            <div
-              className="absolute bg-white transition-all duration-300 ease-in-out"
-              style={{
-                borderRadius: "30px",
-                top: "4px",
-                bottom: "4px",
-                left: pill.left,
-                width: pill.width,
-              }}
-            />
-            <Link
-              ref={mediaRef}
-              href="/media"
-              className={`relative z-10 transition-colors duration-300 ${isAgence ? "text-white" : "text-black"}`}
-              style={linkStyle}
-            >
-              MEDIA
-            </Link>
-            <Link
-              ref={agenceRef}
-              href="/agence"
-              className={`relative z-10 transition-colors duration-300 ${isAgence ? "text-black" : "text-white"}`}
-              style={linkStyle}
-            >
-              AGENCE
-            </Link>
-          </div>
+    <>
+      <header className="sticky top-0 z-50">
+        {/* Banner row */}
+        <div
+          className="flex items-center justify-center overflow-hidden"
+          style={{ height: "30px", background: bannerBg }}
+        >
+          <span key={msgIndex} className={animClass} style={{ ...bannerStyle, color: bannerFg }}>
+            {bannerMessages[msgIndex]}
+          </span>
         </div>
 
-        {/* Right: nav links */}
-        <ul className="flex gap-7 text-sm text-neutral-800 items-center">
-          {activeMenu.map((item) => (
-            <li key={item.href}>
+        {/* Nav row */}
+        <nav
+          className="relative flex items-center px-6 md:px-10"
+          style={{ height: "60px", background: navBg }}
+        >
+          {/* Mobile: Menu button */}
+          <button
+            className="md:hidden"
+            onClick={() => setMenuOpen(true)}
+            style={{ ...navLinkStyle, color: navFg, background: "none", border: "none", cursor: "pointer" }}
+          >
+            Menu
+          </button>
+
+          {/* Desktop: left nav links */}
+          <ul className="hidden md:flex items-center gap-7">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  style={{
+                    ...navLinkStyle,
+                    color: navFg,
+                    textDecoration: pathname === item.href ? "underline" : "none",
+                    textUnderlineOffset: "4px",
+                  }}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          {/* LOCTA — always centered */}
+          <Link
+            href="/"
+            className="absolute left-1/2 -translate-x-1/2"
+            style={{
+              fontFamily: 'var(--Heading, "Armin Soft")',
+              fontSize: "20px",
+              fontWeight: 600,
+              lineHeight: "100%",
+              textTransform: "uppercase",
+              color: navFg,
+            }}
+          >
+            LOCTA
+          </Link>
+
+          {/* Contact — always right */}
+          {contactItem && (
+            <div className="ml-auto">
               <Link
-                href={item.href}
-                className={`hover:text-black transition ${
-                  item.label === "Contact" ? "font-bold" : "font-normal"
-                } ${pathname === item.href ? "underline underline-offset-4" : ""}`}
+                href={contactItem.href}
+                style={{
+                  ...navLinkStyle,
+                  fontWeight: 600,
+                  color: navFg,
+                  textDecoration: pathname === contactItem.href ? "underline" : "none",
+                  textUnderlineOffset: "4px",
+                }}
               >
-                {item.label}
+                Contact
               </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </header>
+            </div>
+          )}
+        </nav>
+      </header>
+
+      {/* Toggle — fixed at bottom, always visible */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+        <div
+          className="relative flex items-center"
+          style={{
+            background: isAgence ? "#fff" : "#000",
+            border: "none",
+            borderRadius: "30px",
+            padding: "4px",
+          }}
+        >
+          <div
+            className="absolute transition-all duration-300 ease-in-out"
+            style={{
+              background: isAgence ? "#000" : "#fff",
+              borderRadius: "30px",
+              top: "4px",
+              bottom: "4px",
+              left: pill.left,
+              width: pill.width,
+            }}
+          />
+          <Link
+            ref={mediaRef}
+            href="/media"
+            className="relative z-10 transition-colors duration-300"
+            style={{ ...toggleLinkStyle, color: "#000" }}
+          >
+            MEDIA
+          </Link>
+          <Link
+            ref={agenceRef}
+            href="/agence"
+            className="relative z-10 transition-colors duration-300"
+            style={{ ...toggleLinkStyle, color: "#fff" }}
+          >
+            AGENCE
+          </Link>
+        </div>
+      </div>
+
+      {/* Mobile menu overlay */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex flex-col"
+          style={{ background: navBg }}
+        >
+          {/* Overlay top bar */}
+          <div
+            className="relative flex items-center px-6"
+            style={{ height: "60px", borderBottom: `1px solid ${isAgence ? "#333" : "#e5e5e5"}` }}
+          >
+            <button
+              onClick={() => setMenuOpen(false)}
+              style={{ ...navLinkStyle, color: navFg, background: "none", border: "none", cursor: "pointer" }}
+            >
+              Fermer
+            </button>
+            <Link
+              href="/"
+              className="absolute left-1/2 -translate-x-1/2"
+              onClick={() => setMenuOpen(false)}
+              style={{
+                fontFamily: 'var(--Heading, "Armin Soft")',
+                fontSize: "20px",
+                fontWeight: 600,
+                textTransform: "uppercase",
+                color: navFg,
+              }}
+            >
+              LOCTA
+            </Link>
+            {contactItem && (
+              <div className="ml-auto">
+                <Link
+                  href={contactItem.href}
+                  onClick={() => setMenuOpen(false)}
+                  style={{ ...navLinkStyle, fontWeight: 600, color: navFg }}
+                >
+                  Contact
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Overlay menu items */}
+          <ul className="flex flex-col px-8 pt-12 gap-8">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  style={{
+                    fontFamily: 'var(--Heading, "Armin Soft")',
+                    fontSize: "32px",
+                    fontWeight: 300,
+                    color: navFg,
+                    textDecoration: pathname === item.href ? "underline" : "none",
+                    textUnderlineOffset: "6px",
+                  }}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </>
   );
 }
