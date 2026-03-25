@@ -13,7 +13,7 @@ export default function Page(){
     return (
     <main className="p-2">
       <div className="text-center px-2 py-12 flex flex-col gap-4 md:gap-6">
-        <h1 className="text-6xl font-semibold uppercase leading-tight">Les partenaires Locta</h1>
+        <h1 className="text-4xl lg:text-6xl font-semibold uppercase leading-tight break-words">Les partenaires Locta</h1>
         <p className="text-base">Envie de devenir partenaire ?</p>
         <Link
               href="/media/contact"
@@ -56,7 +56,7 @@ export default function Page(){
             </div>
 
             {/* Contenu texte */}
-            <div className="flex-1 px-2 inline-flex flex-col justify-center items-center gap-4 md:gap-6">
+            <div className="flex-1 px-2 inline-flex flex-col justify-center items-center gap-6 md:gap-8">
               <h2 className="self-stretch text-center text-6xl font-semibold uppercase leading-[56px]">
                 {partner.name}
               </h2>
