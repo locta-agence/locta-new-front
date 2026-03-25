@@ -4,9 +4,17 @@ export type BlogSectionItem = {
   images: string[];
 };
 
+export type BlogCategory =
+  | "EVENT"
+  | "MODE"
+  | "MUSIQUE"
+  | "THEATRE"
+  | "CONCERT";
+
 export type BlogArticle = {
   id: string;
   nom: string;
+  categorie: BlogCategory;
   imageBackground: string;
   description: string;
   firstSection: BlogSectionItem[];
@@ -20,6 +28,7 @@ export const blogArticles: BlogArticle[] = [
   {
     id: "blog-001",
     nom: "Lyon en Mouvement",
+    categorie: "MUSIQUE",
     imageBackground: blogImage,
     description:
       "Un article sur la scene locale entre photo, rap et initiatives culturelles dans differents quartiers de Lyon.",
@@ -51,6 +60,7 @@ export const blogArticles: BlogArticle[] = [
   {
     id: "blog-002",
     nom: "Le Retour des Evenements Hybrides",
+    categorie: "EVENT",
     imageBackground: blogImage,
     description:
       "Concerts, pop-up stores et expositions se melangent pour creer des formats plus vivants et plus communautaires.",
@@ -82,6 +92,7 @@ export const blogArticles: BlogArticle[] = [
   {
     id: "blog-003",
     nom: "Pourquoi les Marques Regardent la Scene Locale",
+    categorie: "MODE",
     imageBackground: blogImage,
     description:
       "La credibilite se construit de plus en plus sur le terrain, au contact de communautes engagees et de talents identifies.",
@@ -113,6 +124,7 @@ export const blogArticles: BlogArticle[] = [
   {
     id: "blog-004",
     nom: "Street Culture et Direction Artistique",
+    categorie: "MODE",
     imageBackground: blogImage,
     description:
       "L'esthetique de la rue influence les campagnes, les shootings et les identites visuelles bien au-dela de la mode.",
@@ -144,6 +156,7 @@ export const blogArticles: BlogArticle[] = [
   {
     id: "blog-005",
     nom: "Les Nouveaux Visages du Sport Urbain",
+    categorie: "EVENT",
     imageBackground: blogImage,
     description:
       "Running crews, ride sessions et pratiques outdoor redessinent la maniere de vivre le sport en ville.",
@@ -175,6 +188,7 @@ export const blogArticles: BlogArticle[] = [
   {
     id: "blog-006",
     nom: "Comment Monter un Partenariat Culturel Qui Tient",
+    categorie: "THEATRE",
     imageBackground: blogImage,
     description:
       "Un bon partenariat ne repose pas seulement sur de la visibilite, mais sur un cadre clair et une intention partagee.",
@@ -206,6 +220,7 @@ export const blogArticles: BlogArticle[] = [
   {
     id: "blog-007",
     nom: "Les Formats Media qui Marchent en 2026",
+    categorie: "CONCERT",
     imageBackground: blogImage,
     description:
       "Les publics reagissent mieux aux formats courts, incarnes et relies a une vraie scene qu'aux productions trop lisses.",
