@@ -4,14 +4,14 @@ import SocialSection from "@/app/components/SocialSection";
 
 export default function Page() {
   return (
-    <main className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 p-4 sm:p-6 md:p-8">
+    <main className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 p-4">
       <div className="flex flex-col justify-start">
         <h1 className="uppercase font-bold text-4xl lg:text-7xl mb-6 leading-tight break-words">Un projet ? <br/>Un évènement ?<br/> Contactez-nous</h1>
         <p className="text-gray-600 mb-8 leading-relaxed">Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.</p>
         <Link href="/media/" className="font-semibold underline w-fit">Nous découvrir</Link>
       </div>
       <div>
-        <h2 className="font-bold uppercase mb-8 lg:text-4xl">Parlez nous de votre projet</h2>
+        <h2 className="font-bold uppercase mb-8 text-xl sm:text-2xl lg:text-4xl whitespace-nowrap">Parlez nous de votre projet</h2>
         <form className="flex flex-col gap-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex flex-col">
@@ -41,9 +41,9 @@ export default function Page() {
         </form>
       </div>
 
-      {/* <div className="md:col-span-2 flex justify-center">
+      <div className="md:col-span-2 flex justify-center">
         <SocialSection />
-      </div> */}
+      </div>
     </main>
   );
 }
