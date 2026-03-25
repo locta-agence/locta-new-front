@@ -52,13 +52,24 @@ export default function Header() {
   const pathname = usePathname() || "/";
   const isAgence = pathname.startsWith("/agence");
 
+  // Refs for mobile fixed toggle
   const mediaRef = useRef<HTMLAnchorElement>(null);
   const agenceRef = useRef<HTMLAnchorElement>(null);
   const [pill, setPill] = useState({ left: 4, width: 0 });
 
+  // Refs for desktop nav toggle
+  const mediaRefDt = useRef<HTMLAnchorElement>(null);
+  const agenceRefDt = useRef<HTMLAnchorElement>(null);
+  const [pillDt, setPillDt] = useState({ left: 4, width: 0 });
+
   useEffect(() => {
     const el = isAgence ? agenceRef.current : mediaRef.current;
     if (el) setPill({ left: el.offsetLeft, width: el.offsetWidth });
+  }, [isAgence]);
+
+  useEffect(() => {
+    const el = isAgence ? agenceRefDt.current : mediaRefDt.current;
+    if (el) setPillDt({ left: el.offsetLeft, width: el.offsetWidth });
   }, [isAgence]);
 
   const [msgIndex, setMsgIndex] = useState(0);
@@ -114,15 +125,41 @@ export default function Header() {
             Menu
           </button>
 
-          {/* Desktop: left nav links */}
-          <ul className="hidden md:flex items-center gap-7">
-            {navItems.map((item) => (
+          {/* Desktop: LOCTA + toggle on left */}
+          <div className="hidden md:flex items-center gap-3">
+            <Link
+              href="/"
+              style={{
+                fontFamily: 'var(--Heading, "Armin Soft")',
+                fontSize: "20px",
+                fontWeight: 600,
+                lineHeight: "100%",
+                textTransform: "uppercase",
+                color: navFg,
+              }}
+            >
+              LOCTA
+            </Link>
+            <div className="relative flex items-center" style={{ background: isAgence ? "#fff" : "#000", border: "none", borderRadius: "30px", padding: "4px" }}>
+              <div
+                className="absolute transition-all duration-300 ease-in-out"
+                style={{ background: isAgence ? "#000" : "#fff", borderRadius: "30px", top: "4px", bottom: "4px", left: pillDt.left, width: pillDt.width }}
+              />
+              <Link ref={mediaRefDt} href="/media" className="relative z-10 transition-colors duration-300" style={{ ...toggleLinkStyle, color: "#000" }}>MEDIA</Link>
+              <Link ref={agenceRefDt} href="/agence" className="relative z-10 transition-colors duration-300" style={{ ...toggleLinkStyle, color: "#fff" }}>AGENCE</Link>
+            </div>
+          </div>
+
+          {/* Desktop: nav links right */}
+          <ul className="hidden md:flex items-center gap-7 ml-auto">
+            {activeMenu.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   style={{
                     ...navLinkStyle,
                     color: navFg,
+                    fontWeight: item.label === "Contact" ? 600 : 300,
                     textDecoration: pathname === item.href ? "underline" : "none",
                     textUnderlineOffset: "4px",
                   }}
@@ -133,10 +170,10 @@ export default function Header() {
             ))}
           </ul>
 
-          {/* LOCTA — always centered */}
+          {/* Mobile: LOCTA centered */}
           <Link
             href="/"
-            className="absolute left-1/2 -translate-x-1/2"
+            className="absolute left-1/2 -translate-x-1/2 md:hidden"
             style={{
               fontFamily: 'var(--Heading, "Armin Soft")',
               fontSize: "20px",
@@ -149,9 +186,9 @@ export default function Header() {
             LOCTA
           </Link>
 
-          {/* Contact — always right */}
+          {/* Mobile: Contact right */}
           {contactItem && (
-            <div className="ml-auto">
+            <div className="md:hidden ml-auto">
               <Link
                 href={contactItem.href}
                 style={{
@@ -169,8 +206,8 @@ export default function Header() {
         </nav>
       </header>
 
-      {/* Toggle — fixed at bottom, always visible */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+      {/* Toggle — fixed at bottom, mobile only */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 md:hidden">
         <div
           className="relative flex items-center"
           style={{
