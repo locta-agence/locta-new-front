@@ -15,12 +15,7 @@ export default function Page(){
       <div className="text-center px-2 py-12 flex flex-col gap-4 md:gap-6">
         <h1 className="text-4xl lg:text-6xl font-semibold uppercase leading-tight break-words">Les partenaires Locta</h1>
         <p className="text-base">Envie de devenir partenaire ?</p>
-        <Link
-              href="/media/contact"
-              className="font-bold underline text-sm md:text-base"
-            >
-              Nous contacter
-        </Link>
+        <Link href="/media/contact" className="inline-block w-fit self-center font-bold underline text-sm md:text-base">Nous contacter</Link>
       </div>
 
       <section className="w-full px-2 pb-2 pt-8">
