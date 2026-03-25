@@ -12,18 +12,18 @@ const svgMap: Record<string, string> = {
 export default function Page(){
     return (
     <main className="p-2">
-      <div className="text-center px-2 py-8">
-        <h1 className="text-7xl font-semibold uppercase">Les partenaires Locta (TODO)</h1>
-        <p>Envie de devenir partenaire ?</p>
+      <div className="text-center px-2 py-12 flex flex-col gap-4 md:gap-6">
+        <h1 className="text-4xl lg:text-6xl font-semibold uppercase leading-tight break-words">Les partenaires Locta</h1>
+        <p className="text-base">Envie de devenir partenaire ?</p>
         <Link
               href="/media/contact"
-              className="font-bold underline"
+              className="font-bold underline text-sm md:text-base"
             >
               Nous contacter
         </Link>
       </div>
 
-      <section className="w-full px-2 pb-10">
+      <section className="w-full px-2 pb-2 pt-8">
         <div
           className="relative w-full overflow-hidden"
           style={{ height: "500px", maxHeight: "550px" }}
@@ -43,7 +43,7 @@ export default function Page(){
         {partners.map((partner, index) => (
           <article
             key={partner.id}
-            className={`self-stretch px-2 pb-8 flex flex-col md:inline-flex md:items-center gap-2 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+            className={`self-stretch px-2 py-8 flex flex-col md:inline-flex md:items-center gap-2 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
           >
             {/* Image avec overlay gradient */}
             <div className="relative flex-1 aspect-[9/16] min-h-[450px] md:min-w-96 md:min-h-[500px] p-2 bg-gradient-to-b from-black/30 via-zinc-800/0 to-black/30 overflow-hidden">
@@ -56,8 +56,8 @@ export default function Page(){
             </div>
 
             {/* Contenu texte */}
-            <div className="flex-1 px-2 inline-flex flex-col justify-center items-center gap-6">
-              <h2 className="self-stretch text-center text-6xl font-semibold uppercase leading-[56px]">
+            <div className="flex-1 px-2 inline-flex flex-col justify-center items-center gap-6 md:gap-8">
+              <h2 className="self-stretch text-center text-4xl lg:text-6xl font-semibold uppercase leading-[56px]">
                 {partner.name}
               </h2>
               <p className="self-stretch text-center text-sm font-light">
