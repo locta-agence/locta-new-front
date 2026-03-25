@@ -34,7 +34,7 @@ const navLinkStyle: React.CSSProperties = {
 
 const mediaMenu = [
   { label: "Évènements", href: "/media/evenement" },
-  { label: "Partenariats", href: "/media/evenement" },
+  { label: "Partenariats", href: "/media/partenariat" },
   { label: "Local talent", href: "/media/local-talent" },
   { label: "Articles", href: "/media/articles" },
   { label: "À propos", href: "/media/a-propos" },

@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-zinc-200 pt-8 text-center text-sm text-zinc-600">
-          <p>&copy; 2024 Locta Agency. All rights reserved.</p>
+          <p>&copy; 2026 Locta Agency. All rights reserved.</p>
         </div>
       </div>
     </footer>
