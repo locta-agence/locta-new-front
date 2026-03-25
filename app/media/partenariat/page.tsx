@@ -23,7 +23,7 @@ export default function Page(){
         </Link>
       </div>
 
-      <section className="w-full px-2 pb-10 pt-8">
+      <section className="w-full px-2 pb-2 pt-8">
         <div
           className="relative w-full overflow-hidden"
           style={{ height: "500px", maxHeight: "550px" }}
@@ -57,7 +57,7 @@ export default function Page(){
 
             {/* Contenu texte */}
             <div className="flex-1 px-2 inline-flex flex-col justify-center items-center gap-6 md:gap-8">
-              <h2 className="self-stretch text-center text-6xl font-semibold uppercase leading-[56px]">
+              <h2 className="self-stretch text-center text-4xl lg:text-6xl font-semibold uppercase leading-[56px]">
                 {partner.name}
               </h2>
               <p className="self-stretch text-center text-sm font-light">
