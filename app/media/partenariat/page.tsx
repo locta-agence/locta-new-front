@@ -11,7 +11,7 @@ const svgMap: Record<string, string> = {
 
 export default function Page(){
     return (
-    <main className="p-8">
+    <main className="p-4 md:p-8">
       <div className="text-center">
         <h1 className="text-7xl font-semibold uppercase">Les partenaires Locta (TODO)</h1>
         <p>Envie de devenir partenaire ?</p>
@@ -23,7 +23,7 @@ export default function Page(){
         </Link>
       </div>
 
-      <section className="w-full px-6 pb-10">
+      <section className="w-full px-3 md:px-6 pb-10">
         <div
           className="relative w-full overflow-hidden"
           style={{ height: "500px", maxHeight: "550px" }}
@@ -43,10 +43,10 @@ export default function Page(){
         {partners.map((partner, index) => (
           <article
             key={partner.id}
-            className={`self-stretch px-6 pb-8 flex flex-col md:inline-flex md:items-center gap-2 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+            className={`self-stretch px-3 md:px-6 pb-8 flex flex-col md:inline-flex md:items-center gap-2 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
           >
             {/* Image avec overlay gradient */}
-            <div className="relative flex-1 aspect-[9/16] min-h-[450px] md:min-w-96 md:min-h-[500px] p-5 bg-gradient-to-b from-black/30 via-zinc-800/0 to-black/30 overflow-hidden">
+            <div className="relative flex-1 aspect-[9/16] min-h-[450px] md:min-w-96 md:min-h-[500px] p-2 md:p-5 bg-gradient-to-b from-black/30 via-zinc-800/0 to-black/30 overflow-hidden">
               <Image
                 src={partner.image}
                 alt={partner.name}
@@ -56,7 +56,7 @@ export default function Page(){
             </div>
 
             {/* Contenu texte */}
-            <div className="flex-1 px-4 md:px-10 inline-flex flex-col justify-center items-center gap-6">
+            <div className="flex-1 px-2 md:px-10 inline-flex flex-col justify-center items-center gap-6">
               <h2 className="self-stretch text-center text-6xl font-semibold uppercase leading-[56px]">
                 {partner.name}
               </h2>
