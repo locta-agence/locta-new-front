@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { partners } from "@/data/partners";
+import Link from "next/link";
 
 const svgMap: Record<string, string> = {
   instagram: '/images/instagram.svg',
@@ -14,7 +15,12 @@ export default function Page(){
       <div className="text-center">
         <h1 className="text-7xl font-semibold uppercase">Les partenaires Locta (TODO)</h1>
         <p>Envie de devenir partenaire ?</p>
-        <p className="font-bold underline">Nous contacter</p>
+        <Link
+              href="/media/contact"
+              className="font-bold underline"
+            >
+              Nous contacter
+        </Link>
       </div>
 
       <section className="w-full px-10 pb-10">
