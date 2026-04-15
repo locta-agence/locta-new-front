@@ -138,7 +138,7 @@ export default function SocialSection() {
       {/* Desktop: full layout */}
       <div
         className="hidden md:flex"
-        style={{ width: "100%", padding: "120px var(--Margin-margin, 24px)", flexDirection: "column", justifyContent: "flex-end", alignItems: "stretch", gap: "20px" }}
+        style={{ width: "100%", padding: "120px var(--Margin-margin, 40px)", flexDirection: "column", justifyContent: "flex-end", alignItems: "stretch", gap: "20px" }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "10px", alignSelf: "stretch" }}>
 
