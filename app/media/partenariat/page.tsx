@@ -13,7 +13,7 @@ const svgMap: Record<string, string> = {
 
 export default function Page(){
     return (
-    <main className="p-2">
+    <main className="p-[40px]">
       <div className="text-center px-2 py-12 flex flex-col gap-4 md:gap-6">
         <h1 className="text-4xl lg:text-6xl font-semibold uppercase leading-tight break-words">Les partenaires Locta</h1>
         <p className="text-base">Envie de devenir partenaire ?</p>
