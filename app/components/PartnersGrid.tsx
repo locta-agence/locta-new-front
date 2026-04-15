@@ -1,0 +1,55 @@
+'use client';
+
+import Image from "next/image";
+import { partners } from "@/data/partners";
+
+const svgMap: Record<string, string> = {
+  instagram: '/images/instagram.svg',
+  linkedin: '/images/linkedIn.svg',
+  tiktok: '/images/tikTok.svg',
+};
+
+export default function PartnersGrid() {
+  return (
+    <section className="flex flex-col">
+      {partners.map((partner, index) => (
+        <article
+          key={partner.id}
+          className={`self-stretch px-2 py-2 flex flex-col md:inline-flex md:items-center gap-2 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+        >
+          {/* Image avec overlay gradient */}
+          <div className="relative flex-1 aspect-[9/16] min-h-[450px] md:min-w-96 md:min-h-[500px] p-2 bg-gradient-to-b from-black/30 via-zinc-800/0 to-black/30 overflow-hidden">
+            <Image
+              src={partner.image}
+              alt={partner.name}
+              fill
+              className="object-cover -z-10"
+            />
+          </div>
+
+          {/* Contenu texte */}
+          <div className="flex-1 px-2 inline-flex flex-col justify-center items-center gap-6 md:gap-8">
+            <h2 className="self-stretch text-center text-4xl lg:text-6xl font-semibold uppercase leading-[56px]">
+              {partner.name}
+            </h2>
+            <p className="self-stretch text-center text-sm font-light">
+              {partner.description}
+            </p>
+            <a href={partner.site} target="_blank" rel="noopener noreferrer" className="self-stretch text-center text-sm font-light underline">
+              {partner.site}
+            </a>
+            {partner.socials && (
+              <div className="inline-flex justify-center items-center gap-6">
+                {partner.socials.map((s) => svgMap[s.platform] && (
+                  <a key={s.platform} href={s.url} target="_blank" rel="noopener noreferrer" title={s.platform}>
+                    <Image src={svgMap[s.platform]} alt={s.platform} width={20} height={20} />
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </section>
+  );
+}

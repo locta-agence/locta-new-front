@@ -4,7 +4,7 @@ import TeamGrid from "@/app/components/TeamGrid";
 export default function Page() {
   return (
     <main className="p-[40px]">
-      <div>
+      <div className="text-center">
         <h1 className="font-bold text-6xl uppercase">à propos de nous</h1>
         <p className="mt-[32px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Sed do eiusmod tempor niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -25,7 +25,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="mt-[60px]">
+      <div className="text-center mt-[60px]">
         <h2 className="font-bold text-6xl uppercase">notre team</h2>
         <p className="mt-[32px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 Sed do eiusmod tempor niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
