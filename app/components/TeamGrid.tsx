@@ -4,7 +4,7 @@ import { teamMembers } from "@/data/teamMembers";
 
 export default function TeamGrid() {
   return (
-    <div className="mt-[50px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px]">
+    <div className="mt-[50px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
       {teamMembers.map((member) => (
         <div
           key={member.id}
