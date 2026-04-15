@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import type { CSSProperties, ReactNode } from "react";
 import { events, getEventBySlug, getOtherEvents } from "@/data/events";
 import SocialSection from "@/app/components/SocialSection";
+import StatsSection from "@/app/components/StatsSection";
 import EventContactForm from "./EventContactForm";
 
 const headingStyle: CSSProperties = {
@@ -45,17 +46,25 @@ function ArticleCard({
   topLeft,
   bottomLeft,
   priority = false,
+  containerStyle,
 }: {
   src: string;
   copyright?: string;
   topLeft?: ReactNode;
   bottomLeft?: ReactNode;
   priority?: boolean;
+  containerStyle?: CSSProperties;
 }) {
   return (
     <div
       className="relative flex flex-1 flex-col items-start justify-end overflow-hidden"
-      style={{ aspectRatio: "300/380", minHeight: "570px", minWidth: "450px", padding: "20px" }}
+      style={{
+        aspectRatio: "300/380",
+        minHeight: "570px",
+        minWidth: "450px",
+        padding: "20px",
+        ...containerStyle,
+      }}
     >
       {/* image */}
       <Image src={src} alt="" fill priority={priority} className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
@@ -106,7 +115,7 @@ export default async function EventDetailPage({
 
       {/* ── FIL D'ARIANE ──────────────────────────────────────── */}
       <nav
-        className="flex items-center gap-[12px] px-[var(--margin-margin,24px)] py-[20px] text-[16px]"
+        className="flex items-center gap-[12px] px-(--margin-margin,24px) py-[20px] text-[16px]"
         style={textStyle}
       >
         <Link href="/" className="hover:underline">Accueil</Link>
@@ -117,10 +126,17 @@ export default async function EventDetailPage({
       </nav>
 
       {/* ── HERO ──────────────────────────────────────────────── */}
-      <section className="px-[var(--margin-margin,24px)]">
+      <section className="px-(--margin-margin,24px)">
         <ArticleCard
           src={detail.heroImage}
           priority
+          containerStyle={{
+            aspectRatio: "16 / 6",
+            minHeight: "0",
+            minWidth: "0",
+            width: "100%",
+            padding: "16px",
+          }}
           topLeft={
             <div className="flex items-center gap-[8px]">
               <div
@@ -185,7 +201,7 @@ export default async function EventDetailPage({
         return (
           <section
             key={i}
-            className="flex flex-wrap items-center gap-[var(--gutter,8px)] px-[var(--margin-margin,24px)] py-[var(--gutter,8px)]"
+            className="flex flex-wrap items-center gap-(--gutter,8px) px-(--margin-margin,24px) py-(--gutter,8px)"
           >
             {row.textFirst ? (
               <>{textBlock}{imageBlock}</>
@@ -197,7 +213,7 @@ export default async function EventDetailPage({
       })}
 
       {/* ── GALERIE ────────────────────────────────────────────── */}
-      <section className="flex flex-wrap items-start gap-[var(--gutter,8px)] px-[var(--margin-margin,24px)]">
+      <section className="flex flex-wrap items-start gap-(--gutter,8px) px-(--margin-margin,24px)">
         {detail.gallery.map((src, i) => (
           <ArticleCard
             key={`${src}-${i}`}
@@ -208,7 +224,7 @@ export default async function EventDetailPage({
       </section>
 
       {/* ── NOS DERNIERS ÉVÉNEMENTS ───────────────────────────── */}
-      <section className="flex flex-col items-end justify-center pb-[40px] pt-[60px] px-[var(--margin-margin,24px)]">
+      <section className="flex flex-col items-end justify-center px-(--margin-margin,24px) pb-[40px] pt-[60px]">
         {/* en-tête */}
         <div className="mb-0 flex w-full items-end justify-between">
           <p
@@ -228,7 +244,7 @@ export default async function EventDetailPage({
       </section>
 
       {/* cartes */}
-      <section className="flex flex-wrap items-start gap-[var(--gutter,8px)] px-[var(--margin-margin,24px)]">
+      <section className="flex flex-wrap items-start gap-(--gutter,8px) px-(--margin-margin,24px)">
         {others.map((ev) => (
           <Link
             key={ev.id}
@@ -271,7 +287,7 @@ export default async function EventDetailPage({
 
       {/* ── CONTACT ───────────────────────────────────────────── */}
       <section
-        className="flex items-start gap-[70px] px-[var(--margin-margin,24px)] pb-[80px] pt-[60px]"
+        className="flex items-start gap-[70px] px-(--margin-margin,24px) pb-[80px] pt-[60px]"
       >
         {/* gauche */}
         <div className="flex flex-1 flex-col items-start gap-[24px]" style={{ minWidth: 0 }}>
@@ -288,7 +304,7 @@ export default async function EventDetailPage({
           </p>
           <Link
             href="/media/contact"
-            className="border-b border-black pb-[1px] text-[14px] hover:opacity-60"
+            className="border-b border-black pb-px text-[14px] hover:opacity-60"
             style={textStyle}
           >
             Nous découvrir
@@ -305,29 +321,17 @@ export default async function EventDetailPage({
       <SocialSection />
 
       {/* ── CHIFFRES ──────────────────────────────────────────── */}
-      <section
-        className="flex items-center justify-between border-b border-t border-black py-[40px] text-center"
-        style={{ padding: "40px 90px" }}
-      >
-        {detail.stats.map((stat) => (
-          <div key={stat.label} className="flex items-end gap-[8px]">
-            <p
-              className="text-[32px] uppercase leading-none"
-              style={{ ...headingStyle, fontWeight: 600 }}
-            >
-              {stat.value}
-            </p>
-            <p className="text-[16px] leading-normal" style={textStyle}>
-              {stat.label}
-            </p>
-          </div>
-        ))}
-      </section>
+      <StatsSection
+        stats={detail.stats.map((stat) => ({
+          number: stat.value,
+          label: stat.label,
+        }))}
+      />
 
       {/* ── FOOTER ────────────────────────────────────────────── */}
       <footer className="flex flex-col items-center gap-[64px] pt-[40px]">
         {/* grand titre */}
-        <div className="w-full px-[var(--margin-margin,24px)]">
+        <div className="w-full px-(--margin-margin,24px)">
           <h3
             className="w-full uppercase leading-none tracking-[-0.02em]"
             style={{ ...headingStyle, fontWeight: 600, fontSize: "clamp(36px, 6vw, 72px)" }}
@@ -394,7 +398,7 @@ export default async function EventDetailPage({
           className="flex w-full items-center justify-center bg-black py-[12px]"
         >
           <span
-            className="border-b border-white pb-[1px] text-[14px] font-semibold text-white"
+            className="border-b border-white pb-px text-[14px] font-semibold text-white"
             style={headingStyle}
           >
             Découvrir l'agence →
