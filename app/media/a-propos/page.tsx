@@ -1,6 +1,7 @@
 
 import TeamGrid from "@/app/components/TeamGrid";
 import SocialSection from "@/app/components/SocialSection";
+import StatsSection from "@/app/components/StatsSection";
 import Link from "next/link";
 
 import Image from "next/image";
@@ -141,6 +142,7 @@ Sed do eiusmod tempor niam, quis nostrud exercitation ullamco laboris nisi ut al
       </div>
       </div> 
       <SocialSection />   
+      <StatsSection />
     </main>
   );
 }

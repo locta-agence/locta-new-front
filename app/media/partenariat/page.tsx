@@ -1,8 +1,9 @@
-import Image from "next/image";
+
 import Link from "next/link";
 
 import SocialSection from "@/app/components/SocialSection";
 import PartnersGrid from "@/app/components/PartnersGrid";
+import StatsSection from "@/app/components/StatsSection";
 
 
 export default function Page(){
@@ -36,6 +37,7 @@ export default function Page(){
       </section>
       </div>
       <SocialSection />
+      <StatsSection />
     </main>
     );
 }

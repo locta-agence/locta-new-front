@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, type FormEvent } from "react";
 
 import SocialSection from "@/app/components/SocialSection";
+import StatsSection from "@/app/components/StatsSection";
 
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_ACCESS_KEY =
@@ -244,6 +245,7 @@ export default function Page() {
       </div>
 
       <SocialSection />
+      <StatsSection />
     </main>
   );
 }
