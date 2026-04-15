@@ -38,7 +38,7 @@ Sed do eiusmod tempor niam, quis nostrud exercitation ullamco laboris nisi ut al
 
       <TeamGrid /> 
 
-      <section className="mt-[24px] flex flex-col md:flex-row items-start gap-8">
+      <section className="mt-[24px] flex flex-col md:flex-row items-center gap-8">
         {/* Image */}
         <div className="flex-1 relative aspect-[9/12] overflow-hidden">
           <Image
