@@ -18,7 +18,7 @@ export default function PartnersGrid() {
           className={`self-stretch px-2 py-2 flex flex-col md:inline-flex md:items-center gap-2 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
         >
           {/* Image avec overlay gradient */}
-          <div className="relative flex-1 aspect-[9/16] min-h-[450px] md:min-w-96 md:min-h-[500px] p-2 bg-gradient-to-b from-black/30 via-zinc-800/0 to-black/30 overflow-hidden">
+          <div className="relative flex-1 aspect-[9/12] min-h-[450px] md:min-w-96 md:min-h-[500px] p-2 bg-gradient-to-b from-black/30 via-zinc-800/0 to-black/30 overflow-hidden">
             <Image
               src={partner.image}
               alt={partner.name}

@@ -8,8 +8,7 @@ export default function TeamGrid() {
       {teamMembers.map((member) => (
         <div
           key={member.id}
-          className="relative group overflow-hidden"
-          style={{ height: "420px" }}
+          className="relative group overflow-hidden aspect-[9/12]"
         >
           {/* Image de fond */}
           <div
