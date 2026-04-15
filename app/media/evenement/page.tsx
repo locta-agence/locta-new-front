@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useMemo, useState, type CSSProperties } from "react";
 import { events } from "@/data/events";
 
@@ -35,8 +36,10 @@ function EventCard({
   isFeatured?: boolean;
 }) {
   return (
-    <article
-      className={`group relative overflow-hidden bg-black text-white ${
+    <Link
+      href={`/media/evenement/${event.slug}`}
+      aria-label={`Voir l’événement ${event.titre}`}
+      className={`group relative block overflow-hidden bg-black text-white outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
         isFeatured ? "h-[430px] sm:h-[520px]" : "h-[420px] sm:h-[560px]"
       }`}
     >
@@ -73,7 +76,7 @@ function EventCard({
         </h2>
         <p className="mt-1 text-[13px] leading-none text-white/85">{formatDate(event.date)}</p>
       </div>
-    </article>
+    </Link>
   );
 }
 
@@ -93,7 +96,8 @@ export default function Page() {
   );
 
   const featuredEvent = filteredEvents[0];
-  const portraitEvents = filteredEvents.slice(1, 3);
+  /** Tous les autres événements (lien vers la page détail pour chaque carte) */
+  const gridEvents = filteredEvents.slice(1);
 
   return (
     <main className="px-4 pb-14 pt-10 sm:px-8 lg:px-10">
@@ -139,7 +143,7 @@ export default function Page() {
           {featuredEvent ? <EventCard event={featuredEvent} isFeatured /> : null}
 
           <div className="grid gap-1.5 md:grid-cols-2">
-            {portraitEvents.map((event) => (
+            {gridEvents.map((event) => (
               <EventCard key={event.id} event={event} />
             ))}
           </div>
