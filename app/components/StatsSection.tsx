@@ -20,7 +20,7 @@ export default function StatsSection({ stats }: StatsSectionProps) {
   const statsToDisplay = stats || defaultStats;
 
   return (
-    <div className="w-full bg-white border-t border-b border-black py-[24px] px-[70px]">
+    <div className="w-full bg-white border-t-2 border-b-2 border-black py-[24px] px-[120px]">
       <div className="flex flex-col md:flex-row justify-between items-center gap-[40px] md:gap-0">
         {statsToDisplay.map((stat, index) => (
           <div key={index} className="flex flex-row items-baseline gap-3">
