@@ -10,8 +10,9 @@ export default function ConditionalFooter() {
   const pathname = usePathname() || "/";
   const isEventDetail =
     pathname.startsWith("/media/evenement/") && pathname !== "/media/evenement";
+  const hasPageFooter = pathname === "/media/local-talent";
 
-  if (isEventDetail) {
+  if (isEventDetail || hasPageFooter) {
     return null;
   }
 

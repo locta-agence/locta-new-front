@@ -350,10 +350,10 @@ export default async function EventDetailPage({
                 <p className="text-[14px]" style={headingStyle}>E-mail</p>
               </div>
               <div className="border-b border-black">
-                <p className="text-[14px] font-semibold" style={headingStyle}>M'inscrire</p>
+                <p className="text-[14px] font-semibold" style={headingStyle}>M&apos;inscrire</p>
               </div>
             </div>
-            <p className="text-[14px]" style={headingStyle}>Pour ne rien louper de l'actu Lyonnaise</p>
+            <p className="text-[14px]" style={headingStyle}>Pour ne rien louper de l&apos;actu Lyonnaise</p>
           </div>
 
           {/* À propos */}
@@ -401,7 +401,7 @@ export default async function EventDetailPage({
             className="border-b border-white pb-px text-[14px] font-semibold text-white"
             style={headingStyle}
           >
-            Découvrir l'agence →
+            Découvrir l&apos;agence →
           </span>
         </Link>
       </footer>
