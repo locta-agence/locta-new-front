@@ -61,42 +61,43 @@ function TextBlock({
   );
 }
 
-function TalentIntroText({ talent }: { talent: Talent }) {
-  return (
-    <div>
-      <TextBlock title={talent.title_01} text={talent.text_01} />
-      {talent.text_02 ? (
-        <div className="mt-6">
-          <TextBlock title={talent.title_02} text={talent.text_02} />
-        </div>
-      ) : null}
-    </div>
-  );
-}
 
 function ImagePanel({
   src,
   alt,
   caption,
+  mediaType = "image",
   priority = false,
   className = "",
 }: {
   src: string;
   alt: string;
   caption?: string;
+  mediaType?: "image" | "video";
   priority?: boolean;
   className?: string;
 }) {
   return (
     <figure className={`relative overflow-hidden bg-neutral-100 ${className}`}>
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        priority={priority}
-        sizes="(max-width: 768px) 92vw, 50vw"
-        className="object-cover"
-      />
+      {mediaType === "video" ? (
+        <video
+          src={src}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          priority={priority}
+          sizes="(max-width: 768px) 92vw, 50vw"
+          className="object-cover"
+        />
+      )}
       {caption ? (
         <figcaption className="absolute bottom-2 left-2 text-[10px] text-white/90">
           © {caption}
@@ -154,7 +155,7 @@ function OtherTalentCard({
         }`}
       >
         <Image
-          src={talent.image_01}
+          src={talent.image_02}
           alt={talent.fullname}
           fill
           sizes="(max-width: 768px) 30vw, 28vw"
@@ -232,15 +233,16 @@ export default async function TalentPage({
           </header>
 
           <ImagePanel
-            src={talent.image_01}
+            src={talent.media_01}
             alt={talent.fullname}
+            mediaType={talent.media_01_type}
             priority
             className="aspect-[1/1] md:aspect-[16/6]"
           />
 
           <section className="mt-8 grid gap-10 md:mt-7 md:grid-cols-12 md:items-center md:gap-8">
             <div className="md:col-span-5 md:col-start-2">
-              <TalentIntroText talent={talent} />
+              <TextBlock title={talent.title_01} text={talent.text_01} />
             </div>
             <ImagePanel
               src={talent.image_02}
@@ -248,6 +250,18 @@ export default async function TalentPage({
               caption={photoCredit}
               className="aspect-[4/5] md:col-span-6 md:col-start-7"
             />
+          </section>
+
+          <section className="mt-8 grid gap-10 md:mt-7 md:grid-cols-12 md:items-center md:gap-8">
+            <ImagePanel
+              src={talent.image_03}
+              alt={talent.title_02}
+              caption={photoCredit}
+              className="aspect-[4/5] md:col-span-6"
+            />
+            <div className="md:col-span-5 md:col-start-8">
+              <TextBlock title={talent.title_02} text={talent.text_02} />
+            </div>
           </section>
 
           <section className="py-12 md:py-24">

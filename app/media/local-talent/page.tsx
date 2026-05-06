@@ -120,14 +120,25 @@ function TalentCard({ talent, index }: { talent: Talent; index: number }) {
             pattern.featured ? "aspect-[9/12]" : "aspect-[4/5]"
           } md:aspect-auto`}
         >
-          <Image
-            src={talent.image_01}
-            alt={talent.fullname}
-            fill
-            sizes="(max-width: 768px) 92vw, 34vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
-            priority={index < 2}
-          />
+          {talent.media_01_type === "video" ? (
+            <video
+              src={talent.media_01}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+            />
+          ) : (
+            <Image
+              src={talent.media_01}
+              alt={talent.fullname}
+              fill
+              sizes="(max-width: 768px) 92vw, 34vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+              priority={index < 2}
+            />
+          )}
         </div>
         <p className="mt-1 shrink-0 text-[10px] leading-none text-black/70">
           {talent.fullname}
