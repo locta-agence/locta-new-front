@@ -62,11 +62,11 @@ export default function AgenceFooter() {
                 />
               </div>
               <button style={{ ...h, fontSize: "14px", fontWeight: 600, color: "#fff", background: "none", border: "none", borderBottom: "1px solid #fff", cursor: "pointer", paddingBottom: "6px", whiteSpace: "nowrap" }}>
-                M'inscrire
+                M&apos;inscrire
               </button>
             </div>
             <p style={{ ...h, fontSize: "14px", fontWeight: 300, color: "#fff", textAlign: "center" }}>
-              Pour ne rien louper de l'actu Lyonnaise
+              Pour ne rien louper de l&apos;actu Lyonnaise
             </p>
           </div>
 

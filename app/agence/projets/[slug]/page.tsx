@@ -108,7 +108,7 @@ export default async function ProjetDetailPage({ params }: { params: Promise<{ s
       <section style={{ padding: "60px 24px 32px" }}>
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "32px", flexWrap: "wrap", gap: "16px" }}>
           <h2 style={{ ...h, fontSize: "clamp(28px, 4vw, 56px)", fontWeight: 600, lineHeight: "100%", textTransform: "uppercase", color: "#fff" }}>
-            D'autres talents
+            D&apos;autres talents
           </h2>
           <Link href="/agence/projets" style={{ ...h, fontSize: "18px", fontWeight: 600, color: "#fff", borderBottom: "1px solid #fff", textDecoration: "none", textTransform: "uppercase", paddingBottom: "2px" }}>
             Tout voir
