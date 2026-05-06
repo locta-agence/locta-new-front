@@ -14,89 +14,155 @@ const infos = [
   { label: "Contact", href: "/media/contact" },
 ];
 
+function AccordionRow({ label, children }: { label: string; children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="w-full">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="w-full flex items-center justify-between bg-transparent cursor-pointer"
+        style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "16px", fontWeight: 600, color: "#000", border: "none", borderTop: "1px solid #000", paddingTop: "12px", paddingBottom: "12px" }}
+      >
+        <span>{label}</span>
+        <span style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "24px", fontWeight: 300, lineHeight: 1 }}>
+          {open ? "−" : "+"}
+        </span>
+      </button>
+      {open && (
+        <div className="pb-3 flex flex-col gap-2 pl-1">
+          {children}
+        </div>
+      )}
+      <div style={{ height: "1px", background: "#000", width: "100%" }} />
+    </div>
+  );
+}
+
 export default function Footer() {
-  const [open, setOpen] = useState<string | null>(null);
-  const toggle = (s: string) => setOpen(open === s ? null : s);
+  const [email, setEmail] = useState("");
 
   return (
     <footer>
-      <StatsSection />
-      <div className="bg-white px-6 md:px-10 pt-8 md:pt-12 pb-8 md:pb-10">
+      {/* Mobile footer */}
+      <div className="md:hidden bg-white px-4 pt-10 pb-6 flex flex-col gap-8">
         <p
-          className="font-semibold uppercase text-black leading-none mb-8 md:mb-12 w-full whitespace-nowrap text-center"
-          style={{ fontSize: "calc((100vw - 5rem) / 18.5)" }}
+          className="font-semibold uppercase text-black leading-none w-full whitespace-nowrap overflow-hidden"
+          style={{ fontSize: "calc((100vw - 2rem) / 18.5)", fontFamily: 'var(--Heading, "Armin Soft")' }}
         >
           LOCTA MÉDIA INDÉPENDANT LYONNAIS
         </p>
 
-        <div className="md:hidden flex flex-col">
-          <div className="border-b border-black pb-6">
-            <p className="text-base font-semibold text-black mb-4">Newsletter</p>
-            <div className="flex items-end gap-4 mb-3">
-              <div className="flex flex-col gap-1 flex-1">
-                <label htmlFor="newsletter-mobile" className="text-sm font-light text-black">E-mail</label>
-                <input id="newsletter-mobile" type="email" className="border-b border-black outline-none bg-transparent text-sm font-light text-black w-full py-0.5" />
-              </div>
-              <button className="text-sm font-semibold text-black hover:underline underline-offset-4 bg-transparent border-none cursor-pointer whitespace-nowrap p-0 pb-0.5">M&apos;inscrire</button>
+        <div className="flex flex-col gap-3 w-full">
+          <p style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "16px", fontWeight: 600, color: "#000" }}>
+            Newsletter
+          </p>
+          <div className="flex items-end gap-3 pb-2 w-full">
+            <div className="flex-1 border-b border-black pb-1.5 px-1">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="E-mail"
+                className="w-full bg-transparent outline-none"
+                style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "14px", fontWeight: 300, color: "#000" }}
+              />
             </div>
-            <p className="text-sm font-light text-black">Pour ne rien louper de l&apos;actu Lyonnaise</p>
+            <button
+              className="bg-transparent cursor-pointer"
+              style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "14px", fontWeight: 600, color: "#000", border: "none", borderBottom: "1px solid #000", paddingBottom: "4px", whiteSpace: "nowrap" }}
+            >
+              M&apos;inscrire
+            </button>
           </div>
-
-          {[
-            { key: "apropos", title: "À propos", links: apropos },
-            { key: "infos", title: "Infos", links: infos },
-          ].map(({ key, title, links }) => (
-            <div key={key} className="border-b border-black">
-              <button onClick={() => toggle(key)} className="w-full flex justify-between items-center py-4 bg-transparent border-none cursor-pointer">
-                <span className="text-base font-semibold text-black">{title}</span>
-                <span className="text-xl font-light text-black">{open === key ? "−" : "+"}</span>
-              </button>
-              {open === key && (
-                <ul className="flex flex-col gap-3 pb-4 list-none p-0 m-0">
-                  {links.map((l) => (
-                    <li key={l.href}><Link href={l.href} className="text-sm font-light text-black no-underline visited:text-black">{l.label}</Link></li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-
-          <p className="text-sm font-light text-black text-center mt-8 mb-2">©Locta</p>
+          <p style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "14px", fontWeight: 300, color: "#000" }}>
+            Pour ne rien louper de l&apos;actu Lyonnaise
+          </p>
         </div>
 
-        <div className="hidden md:grid grid-cols-3 gap-6 mb-10">
+        <div className="w-full flex flex-col">
+          <AccordionRow label="À propos">
+            {apropos.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "14px", fontWeight: 300, color: "#000", textDecoration: "none" }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </AccordionRow>
+          <AccordionRow label="Infos">
+            {infos.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "14px", fontWeight: 300, color: "#000", textDecoration: "none" }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </AccordionRow>
+        </div>
+
+        <p style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "14px", fontWeight: 300, color: "#000", textAlign: "center" }}>
+          ©Locta
+        </p>
+      </div>
+
+      {/* Desktop footer */}
+      <div className="hidden md:block bg-white px-10 pt-12 pb-10">
+        <p
+          className="font-semibold uppercase text-black leading-none mb-12 w-full whitespace-nowrap"
+          style={{ fontSize: "calc((100vw - 5rem) / 18.5)", fontFamily: 'var(--Heading, "Armin Soft")' }}
+        >
+          LOCTA MÉDIA INDÉPENDANT LYONNAIS
+        </p>
+
+        <div className="grid grid-cols-3 gap-6 mb-10">
           <div className="flex flex-col items-center gap-4">
             <p className="text-sm font-semibold uppercase text-black">Newsletter</p>
             <div className="flex items-end gap-4">
               <div className="flex flex-col gap-1">
                 <label htmlFor="newsletter" className="text-sm font-light text-black">E-mail</label>
-                <input id="newsletter" type="email" className="border-b border-black outline-none bg-transparent text-sm font-light text-black w-44 py-0.5" />
+                <input
+                  id="newsletter"
+                  type="email"
+                  className="border-b border-black outline-none bg-transparent text-sm font-light text-black w-44 py-0.5"
+                />
               </div>
-              <button className="text-sm font-semibold text-black hover:underline underline-offset-4 bg-transparent border-none cursor-pointer whitespace-nowrap p-0">M&apos;inscrire</button>
+              <button className="text-sm font-semibold text-black hover:underline underline-offset-4 bg-transparent border-none cursor-pointer whitespace-nowrap p-0">
+                M&apos;inscrire
+              </button>
             </div>
             <p className="text-[13px] font-light text-black text-center">Pour ne rien louper de l&apos;actu Lyonnaise</p>
           </div>
 
           {[
             { title: "À propos", links: apropos },
-            { title: "Infos", links: infos },
+            { title: "Infos",    links: infos },
           ].map(({ title, links }) => (
             <div key={title} className="flex flex-col items-center gap-4">
               <p className="text-sm font-semibold uppercase text-black">{title}</p>
               <ul className="flex flex-col items-center gap-2.5 list-none p-0 m-0">
                 {links.map((l) => (
-                  <li key={l.href}><Link href={l.href} className="text-sm font-light text-black no-underline visited:text-black">{l.label}</Link></li>
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-sm font-light text-black no-underline visited:text-black">
+                      {l.label}
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
 
-        <p className="hidden md:block text-sm font-light text-black text-center">©Locta</p>
+        <p className="text-sm font-light text-black text-center">©Locta</p>
       </div>
 
       <div className="bg-black py-5 px-10 flex justify-center items-center">
-        <Link href="/agence" className="text-sm font-semibold text-white hover:underline underline-offset-4 visited:text-white">Découvrir l&apos;agence →</Link>
+        <Link href="/agence" className="text-sm font-semibold text-white hover:underline underline-offset-4 visited:text-white">
+          Découvrir l&apos;agence →
+        </Link>
       </div>
     </footer>
   );

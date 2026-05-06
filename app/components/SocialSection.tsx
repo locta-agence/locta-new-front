@@ -1,5 +1,4 @@
 "use client";
-import { useRef, useState } from "react";
 
 function InstagramIcon() {
   return (
@@ -56,83 +55,37 @@ const labelStyle: React.CSSProperties = {
 };
 
 export default function SocialSection() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleScroll = () => {
-    if (!scrollRef.current) return;
-    const { scrollLeft } = scrollRef.current;
-    const slideEl = scrollRef.current.children[0] as HTMLElement;
-    if (!slideEl) return;
-    const slideWidth = slideEl.offsetWidth;
-    const index = Math.round(scrollLeft / (slideWidth + 12));
-    setActiveIndex(Math.min(Math.max(index, 0), slides.length - 1));
-  };
-
-  const scrollToSlide = (index: number) => {
-    if (!scrollRef.current) return;
-    const slideEl = scrollRef.current.children[0] as HTMLElement;
-    if (!slideEl) return;
-    const slideWidth = slideEl.offsetWidth;
-    scrollRef.current.scrollTo({ left: index * (slideWidth + 12), behavior: "smooth" });
-  };
 
   return (
     <>
-      {/* Mobile: carousel */}
-      <div className="md:hidden w-full" style={{ padding: "64px 0 40px" }}>
-        <div
-          ref={scrollRef}
-          onScroll={handleScroll}
-          className="flex overflow-x-auto [&::-webkit-scrollbar]:hidden"
-          style={{
-            scrollSnapType: "x mandatory",
-            scrollbarWidth: "none",
-            overscrollBehaviorX: "contain",
-            gap: "12px",
-            padding: "0 12%",
-            scrollPaddingLeft: "12%",
-          }}
-        >
-          {slides.map((slide, i) => (
-            <div
-              key={i}
-              style={{
-                flex: "0 0 76%",
-                scrollSnapAlign: "start",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "16px",
-              }}
-            >
-              <div style={{ display: "flex", height: "25px", justifyContent: "center", alignItems: "center", gap: "8px" }}>
-                {slide.icon}
-                <span style={labelStyle}>{slide.handle}</span>
-              </div>
-              <div style={{ width: "100%", aspectRatio: "169/225", background: slide.bg }} />
+      {/* Mobile: 3-column layout comme la maquette */}
+      <div className="md:hidden w-full" style={{ padding: "60px 16px 40px" }}>
+        {/* 3 colonnes */}
+        <div style={{ display: "flex", gap: "8px", alignItems: "flex-end", width: "100%" }}>
+
+          {/* Gauche : TikTok — flex-1, image petite */}
+          <div style={{ flex: "1 0 0", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-end", gap: "8px", minWidth: 0 }}>
+            <TikTokIcon />
+            <div style={{ width: "100%", aspectRatio: "250/333", background: slides[1].bg }} />
+          </div>
+
+          {/* Centre : Instagram — largeur fixe, image grande + icône + handle */}
+          <div style={{ flexShrink: 0, width: "169px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-end", gap: "8px" }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
+              <InstagramIcon />
+              <span style={labelStyle}>@LO.CTA</span>
             </div>
-          ))}
+            <div style={{ width: "100%", aspectRatio: "250/333", background: slides[0].bg }} />
+          </div>
+
+          {/* Droite : LinkedIn — flex-1, image petite */}
+          <div style={{ flex: "1 0 0", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-end", gap: "8px", minWidth: 0 }}>
+            <LinkedInIcon />
+            <div style={{ width: "100%", aspectRatio: "250/333", background: slides[2].bg }} />
+          </div>
+
         </div>
 
-        {/* Dots */}
-        <div style={{ display: "flex", justifyContent: "center", gap: "8px", marginTop: "20px" }}>
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => scrollToSlide(i)}
-              style={{
-                width: "20px",
-                height: "3px",
-                borderRadius: "2px",
-                border: "none",
-                cursor: "pointer",
-                background: i === activeIndex ? "#000" : "#ccc",
-                padding: 0,
-              }}
-            />
-          ))}
-        </div>
       </div>
 
       {/* Desktop: full layout */}
