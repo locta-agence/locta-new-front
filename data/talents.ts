@@ -1,6 +1,6 @@
 export type Talent = {
   id: string;
-  type: "Photographe" | "Rappeur" | "DJ";
+  type: ("Photographe" | "Rappeur" | "DJ" | "Graphiste" | "Directeur artistique" | "Vidéaste" | "Filmmaker")[];
   image_01: string;
   image_02: string;
   image_03: string;
@@ -28,7 +28,7 @@ export type Talent = {
 export const talents: Talent[] = [
   {
     id: "tal-001",
-    type: "Photographe",
+    type: ["Graphiste", "Directeur artistique"],
     image_01: "/images/events/event_1.jpg",
     image_02: "/images/events/event_1.jpg",
     image_03: "/images/events/event_1.jpg",
@@ -57,7 +57,7 @@ export const talents: Talent[] = [
   },
   {
     id: "tal-002",
-    type: "Photographe",
+    type: ["DJ"],
     image_01: "/images/events/event_1.jpg",
     image_02: "/images/events/event_1.jpg",
     image_03: "/images/events/event_1.jpg",
@@ -89,7 +89,7 @@ export const talents: Talent[] = [
   },
   {
     id: "tal-003",
-    type: "Photographe",
+    type: ["Photographe", "Filmmaker", "Directeur artistique"],
     image_01: "/images/events/event_1.jpg",
     image_02: "/images/events/event_1.jpg",
     image_03: "/images/events/event_1.jpg",
@@ -115,7 +115,7 @@ export const talents: Talent[] = [
   },
   {
     id: "tal-004",
-    type: "Photographe",
+    type: ["Directeur artistique", "Graphiste"],
     image_01: "/images/events/event_1.jpg",
     image_02: "/images/events/event_1.jpg",
     image_03: "/images/events/event_1.jpg",
@@ -141,7 +141,7 @@ export const talents: Talent[] = [
   },
   {
     id: "tal-005",
-    type: "Photographe",
+    type: ["Photographe"],
     image_01: "/images/events/event_1.jpg",
     image_02: "/images/events/event_1.jpg",
     image_03: "/images/events/event_1.jpg",
@@ -167,7 +167,7 @@ export const talents: Talent[] = [
   },
   {
     id: "tal-006",
-    type: "Photographe",
+    type: ["Directeur artistique", "Photographe", "Vidéaste"],
     image_01: "/images/events/event_1.jpg",
     image_02: "/images/events/event_1.jpg",
     image_03: "/images/events/event_1.jpg",
@@ -193,7 +193,7 @@ export const talents: Talent[] = [
   },
   {
     id: "tal-007",
-    type: "Photographe",
+    type: ["Graphiste"],
     image_01: "/images/events/event_1.jpg",
     image_02: "/images/events/event_1.jpg",
     image_03: "/images/events/event_1.jpg",
@@ -219,7 +219,7 @@ export const talents: Talent[] = [
   },
   {
     id: "tal-008",
-    type: "Photographe",
+    type: ["Photographe", "Vidéaste"],
     image_01: "/images/events/event_1.jpg",
     image_02: "/images/events/event_1.jpg",
     image_03: "/images/events/event_1.jpg",
@@ -245,7 +245,7 @@ export const talents: Talent[] = [
   },
   {
     id: "tal-009",
-    type: "Photographe",
+    type: ["DJ"],
     image_01: "/images/events/event_1.jpg",
     image_02: "/images/events/event_1.jpg",
     image_03: "/images/events/event_1.jpg",
@@ -271,7 +271,7 @@ export const talents: Talent[] = [
   },
   {
     id: "tal-010",
-    type: "Photographe",
+    type: ["Photographe"],
     image_01: "/images/events/event_1.jpg",
     image_02: "/images/events/event_1.jpg",
     image_03: "/images/events/event_1.jpg",
@@ -297,7 +297,7 @@ export const talents: Talent[] = [
   },
   {
     id: "tal-011",
-    type: "DJ",
+    type: ["DJ"],
     image_01: "/images/events/event_1.jpg",
     image_02: "/images/events/event_1.jpg",
     image_03: "/images/events/event_1.jpg",

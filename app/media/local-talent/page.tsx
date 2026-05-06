@@ -7,7 +7,7 @@ import SocialSection from "@/app/components/SocialSection";
 import StatsSection from "@/app/components/StatsSection";
 import { talents, type Talent } from "@/data/talents";
 
-const filters = ["Tout voir", "Photographe", "Rappeur"] as const;
+const filters = ["Tout voir", ...Array.from(new Set(talents.flatMap((t) => t.type)))];
 const TALENTS_PER_PAGE = 23;
 
 const layoutPattern = [
@@ -210,14 +210,14 @@ function Pagination({
 }
 
 export default function Page() {
-  const [selectedFilter, setSelectedFilter] = useState<(typeof filters)[number]>("Tout voir");
+  const [selectedFilter, setSelectedFilter] = useState("Tout voir");
   const [currentPage, setCurrentPage] = useState(1);
 
   const filteredTalents = useMemo(
     () =>
       selectedFilter === "Tout voir"
         ? talents
-        : talents.filter((talent) => talent.type === selectedFilter),
+        : talents.filter((talent) => talent.type.includes(selectedFilter as Talent["type"][number])),
     [selectedFilter],
   );
   const totalPages = Math.max(1, Math.ceil(filteredTalents.length / TALENTS_PER_PAGE));
