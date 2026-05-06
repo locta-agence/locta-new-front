@@ -89,7 +89,7 @@ export default function AgencePage() {
       </section>
 
       {/* ── Quote / CTA talents ── */}
-      <section style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-end", padding: "40px 70px", minHeight: "300px" }}>
+      <section className="px-4 py-10 md:px-[70px] md:py-[40px]" style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-end", minHeight: "300px" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "810px" }}>
           <p style={{ ...h, fontSize: "clamp(20px, 3.5vw, 56px)", fontWeight: 600, lineHeight: "100%", textTransform: "uppercase", color: "#fff" }}>
             Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.

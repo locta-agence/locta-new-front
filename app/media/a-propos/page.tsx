@@ -8,17 +8,14 @@ import Image from "next/image";
 export default function Page() {
   return (
     <main>
-     <div className="p-[40px]"> 
+     <div className="px-4 py-8 md:p-[40px]">
       <div className="text-center">
-        <h1 className="font-bold text-6xl uppercase">à propos de nous</h1>
+        <h1 className="font-bold text-4xl md:text-6xl uppercase">à propos de nous</h1>
         <p className="mt-[32px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Sed do eiusmod tempor niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
         <div className="mb-[40px]"/>
-        <div
-          className="relative w-full overflow-hidden"
-          style={{ height: "500px", maxHeight: "550px" }}
-        >
+        <div className="relative w-full overflow-hidden h-[260px] md:h-[500px]">
         <video
           className="absolute inset-0 w-full h-full object-cover"
           src="/video/ski.mp4"
@@ -51,7 +48,7 @@ Sed do eiusmod tempor niam, quis nostrud exercitation ullamco laboris nisi ut al
 
         {/* Contenu */}
         <div className="flex-1">
-          <div className="p-[60px]">
+          <div className="py-6 md:p-[60px]">
             <h2 className="font-bold text-4xl-center lg:text-6xl uppercase mb-6">Titre H2</h2>
             <div className="self-stretch text-sm font-light">
               <p className="mb-6">Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.</p>
@@ -61,7 +58,7 @@ Sed do eiusmod tempor niam, quis nostrud exercitation ullamco laboris nisi ut al
         </div>
       </section>
 
-      <section className="mt-[24px] grid gap-[24px]" style={{ gridTemplateColumns: '2fr 1fr' }}>
+      <section className="mt-[24px] grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-[24px]">
         {/* Image 1 - 2/3 largeur */}
         <div className="relative aspect-[9/12] overflow-hidden">
           <Image
@@ -100,7 +97,7 @@ Sed do eiusmod tempor niam, quis nostrud exercitation ullamco laboris nisi ut al
 
         {/* Contenu */}
         <div className="flex-1">
-          <div className="p-[60px]">
+          <div className="py-6 md:p-[60px]">
             <h2 className="font-bold text-4xl-center lg:text-6xl uppercase mb-6">Titre H2</h2>
             <div className="self-stretch text-sm font-light">
               <p className="mb-6">Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.</p>
@@ -110,15 +107,15 @@ Sed do eiusmod tempor niam, quis nostrud exercitation ullamco laboris nisi ut al
         </div>
       </section>
 
-      <div className="mt-[40px] p-[70px] grid gap-8" style={{ gridTemplateColumns: '1fr 2fr' }}>
-        <div></div>
+      <div className="mt-[40px] px-4 py-10 md:p-[70px] grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
+        <div className="hidden md:block"></div>
         <div className="flex flex-col justify-between">
-          <p className="font-bold text-5xl uppercase">Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.</p>
+          <p className="font-bold text-3xl md:text-5xl uppercase">Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.</p>
           <Link href={"/media/local-talent"} className="inline-block w-fit font-bold underline text-sm md:text-base mt-[24px]">Tous les talents</Link>
         </div>       
       </div>
 
-      <div className="mt-[60px] grid grid-cols-2 gap-[24px]">
+      <div className="mt-[60px] grid grid-cols-1 md:grid-cols-2 gap-[24px]">
         {/* Image 1 */}
         <div className="relative aspect-[9/12] overflow-hidden">
           <Image
