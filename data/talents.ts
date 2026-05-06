@@ -1,29 +1,45 @@
 export type Talent = {
   id: string;
   type: "Photographe" | "Rappeur";
-  image: string;
-  nomComplet: string;
+  image_01: string;
+  image_02: string;
+  image_03: string;
+  image_04: string;
+  image_insta_01: string;
+  image_insta_02: string;
+  image_insta_03: string;
+  image_insta_04: string;
+  image_insta_05: string;
+  fullname: string;
+  subTitle: string;
+  title_01: string;
+  text_01: string;
+  title_02: string;
+  text_02: string;
+  title_03: string;
+  text_03: string;
 };
 
 export const talents: Talent[] = [
-  { id: "tal-001", type: "Photographe", image: "/images/events/event_1.jpg", nomComplet: "Lina Moreau" },
-  { id: "tal-002", type: "Rappeur", image: "/images/events/event_1.jpg", nomComplet: "Nassim Khoury" },
-  { id: "tal-003", type: "Photographe", image: "/images/events/event_1.jpg", nomComplet: "Zoé Garnier" },
-  { id: "tal-004", type: "Rappeur", image: "/images/events/event_1.jpg", nomComplet: "Yanis Borel" },
-  { id: "tal-005", type: "Photographe", image: "/images/events/event_1.jpg", nomComplet: "Chloé Marin" },
-  { id: "tal-006", type: "Rappeur", image: "/images/events/event_1.jpg", nomComplet: "Milo Dervaux" },
-  { id: "tal-007", type: "Photographe", image: "/images/events/event_1.jpg", nomComplet: "Camille Reynaud" },
-  { id: "tal-008", type: "Rappeur", image: "/images/events/event_1.jpg", nomComplet: "Ilyes Rahmani" },
-  { id: "tal-009", type: "Photographe", image: "/images/events/event_1.jpg", nomComplet: "Sarah Lemaitre" },
-  { id: "tal-010", type: "Rappeur", image: "/images/events/event_1.jpg", nomComplet: "Noa Cazals" },
-  { id: "tal-011", type: "Photographe", image: "/images/events/event_1.jpg", nomComplet: "Jeanne Faure" },
-  { id: "tal-012", type: "Rappeur", image: "/images/events/event_1.jpg", nomComplet: "Ismael Doumbia" },
-  { id: "tal-013", type: "Photographe", image: "/images/events/event_1.jpg", nomComplet: "Eva Tissot" },
-  { id: "tal-014", type: "Rappeur", image: "/images/events/event_1.jpg", nomComplet: "Sofiane Leclerc" },
-  { id: "tal-015", type: "Photographe", image: "/images/events/event_1.jpg", nomComplet: "Mathilde Pires" },
-  { id: "tal-016", type: "Rappeur", image: "/images/events/event_1.jpg", nomComplet: "Anas Bellocq" },
-  { id: "tal-017", type: "Photographe", image: "/images/events/event_1.jpg", nomComplet: "Julie Perrot" },
-  { id: "tal-018", type: "Rappeur", image: "/images/events/event_1.jpg", nomComplet: "Lyes Kaci" },
-  { id: "tal-019", type: "Photographe", image: "/images/events/event_1.jpg", nomComplet: "Maya Pradier" },
-  { id: "tal-020", type: "Rappeur", image: "/images/events/event_1.jpg", nomComplet: "Walid Azzi" },
+  {
+    id: "tal-001",
+    type: "Photographe",
+    image_01: "/images/events/event_1.jpg",
+    image_02: "/images/events/event_1.jpg",
+    image_03: "/images/events/event_1.jpg",
+    image_04: "/images/events/event_1.jpg",
+    image_insta_01: "/images/events/event_1.jpg",
+    image_insta_02: "/images/events/event_1.jpg",
+    image_insta_03: "/images/events/event_1.jpg",
+    image_insta_04: "/images/events/event_1.jpg",
+    image_insta_05: "/images/events/event_1.jpg",
+    fullname: "Caroline Perrin",
+    subTitle: "Aujourd’hui, on vous présente Caroline Perrin, notre Local Talent de la semaine !",
+    title_01: "Designer graphique et directrice artistique",
+    text_01: "Basée à Lyon depuis 2022, Caroline développe un univers visuel à la fois expérimental, sensible et parfois volontairement absurde. Entre typographie, motion design et dessin, elle explore différentes pratiques pour nourrir sa créativité et ne jamais se lasser de créer.\n\nDepuis deux ans, elle partage aussi son temps avec la pratique du tatouage, une manière de se reconnecter au dessin traditionnel, à l’origine même de son tournant artistique.",
+    title_02: "",
+    text_02: "Caroline aime dessiner et raconter des histoires. Le design graphique s’est rapidement imposé comme une évidence, un moyen de porter des messages engagés et de donner du sens à ses créations.\n\nCe qu’elle aime dans son métier, c’est l’idée de renouveau à chaque projet. La phase de recherche occupe une place centrale dans son processus : explorer, expérimenter, tester de nouvelles techniques et nouveaux outils.\n\nElle a rejoint l’an dernier le collectif Hecate où elle intervient comme directrice artistique. Ensemble, ils organisent des événements mêlant musique, expositions et marchés de créateurs.",
+    title_03: "Ses inspiration",
+    text_03: "Ses inspirations viennent souvent de l’enfance, de l’imaginaire et du folklore, mais aussi de la poésie du quotidien.\nElle cite notamment le réalisateur Wim Wenders, dont l’esthétique contemplative nourrit sa sensibilité visuelle.",
+  }
 ];
