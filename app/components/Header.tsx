@@ -42,9 +42,9 @@ const mediaMenu = [
 ];
 
 const agenceMenu = [
-  { label: "Offres", href: "/agence/offres" },
-  { label: "Équipe", href: "/agence/equipe" },
-  { label: "Projets", href: "/agence/projets" },
+  { label: "Nos projets", href: "/agence/projets" },
+  { label: "Expertises", href: "/agence/expertises" },
+  { label: "À propos", href: "/agence/a-propos" },
   { label: "Contact", href: "/agence/contact" },
 ];
 

@@ -2,18 +2,21 @@
 
 import { usePathname } from "next/navigation";
 import Footer from "./Footer";
+import AgenceFooter from "../agence/components/AgenceFooter";
 
-/**
- * Masque le footer global sur les pages détail événement : la maquette inclut un pied de page dédié.
- */
 export default function ConditionalFooter() {
   const pathname = usePathname() || "/";
+
+  // Pages sans footer global
   const isEventDetail =
     pathname.startsWith("/media/evenement/") && pathname !== "/media/evenement";
   const hasPageFooter = pathname === "/media/local-talent";
 
-  if (isEventDetail || hasPageFooter) {
-    return null;
+  if (isEventDetail) return null;
+
+  // Footer noir Agence pour toutes les routes /agence/*
+  if (pathname.startsWith("/agence")) {
+    return <AgenceFooter />;
   }
 
   return <Footer />;
