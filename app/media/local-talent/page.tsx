@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import SocialSection from "@/app/components/SocialSection";
+import StatsSection from "@/app/components/StatsSection";
 import { talents, type Talent } from "@/data/talents";
 
 const filters = ["Tout voir", "Photographe", "Rappeur"] as const;
@@ -107,29 +109,35 @@ function TalentCard({ talent, index }: { talent: Talent; index: number }) {
   const pattern = layoutPattern[index % layoutPattern.length];
 
   return (
-    <article className={`${pattern.className} group min-h-0`}>
-      <div
-        className={`relative w-full overflow-hidden bg-neutral-100 ${
-          pattern.featured ? "aspect-[9/12]" : "aspect-[4/5]"
-        } md:h-full md:aspect-auto`}
+    <article className={`${pattern.className} min-h-0`}>
+      <Link
+        href={`/media/local-talent/${talent.id}`}
+        aria-label={`Voir le talent ${talent.fullname}`}
+        className="group flex h-full min-h-0 flex-col outline-none focus-visible:ring-2 focus-visible:ring-black"
       >
-        <Image
-          src={talent.image_01}
-          alt={talent.fullname}
-          fill
-          sizes="(max-width: 768px) 92vw, 34vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
-          priority={index < 2}
-        />
-      </div>
-      <p className="mt-1 text-[10px] leading-none text-black/70">
-        {talent.fullname}
-      </p>
+        <div
+          className={`relative w-full overflow-hidden bg-neutral-100 md:min-h-0 md:flex-1 ${
+            pattern.featured ? "aspect-[9/12]" : "aspect-[4/5]"
+          } md:aspect-auto`}
+        >
+          <Image
+            src={talent.image_01}
+            alt={talent.fullname}
+            fill
+            sizes="(max-width: 768px) 92vw, 34vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+            priority={index < 2}
+          />
+        </div>
+        <p className="mt-1 shrink-0 text-[10px] leading-none text-black/70">
+          {talent.fullname}
+        </p>
+      </Link>
     </article>
   );
 }
 
-function getPaginationItems(currentPage: number, totalPages: number) {
+function getPaginationItems(currentPage: number, totalPages: number): Array<number | "..."> {
   if (totalPages <= 6) {
     return Array.from({ length: totalPages }, (_, index) => index + 1);
   }
@@ -159,7 +167,7 @@ function Pagination({
   const hasNext = currentPage < totalPages;
 
   return (
-    <nav className="flex flex-col items-center gap-7 py-14 text-xs uppercase">
+    <nav className="flex flex-col items-center gap-7 pb-4 pt-12 text-xs uppercase md:pb-0">
       <div className="flex items-center gap-4 text-black/25">
         {paginationItems.map((page, index) =>
           page === "..." ? (
@@ -201,94 +209,6 @@ function Pagination({
   );
 }
 
-function LocalStats() {
-  const stats = [
-    { value: "2023", label: "Création de l'agence" },
-    { value: "2", label: "Membres de l'agence" },
-    { value: "4", label: "Projets réalisés" },
-    { value: "1200", label: "Personnes qui nous suivent" },
-  ];
-
-  return (
-    <section className="border-y border-black px-4 py-8 md:px-10">
-      <div className="mx-auto grid max-w-[1440px] gap-8 md:grid-cols-4 md:gap-10">
-        {stats.map((stat) => (
-          <div key={stat.label} className="flex items-baseline gap-3">
-            <strong className="text-2xl font-semibold leading-none md:text-3xl">
-              {stat.value}
-            </strong>
-            <span className="text-[11px] leading-tight text-black/70 md:text-xs">
-              {stat.label}
-            </span>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function PageFooter() {
-  return (
-    <footer className="bg-white px-4 pb-24 pt-12 md:px-10 md:pb-10 md:pt-14">
-      <div className="mx-auto max-w-[1440px]">
-        <h2 className="max-w-[1220px] text-[28px] font-semibold uppercase leading-[0.95] tracking-[-0.03em] md:text-[64px]">
-          Locta média indépendant lyonnais
-        </h2>
-
-        <div className="mt-12 grid gap-8 text-xs md:grid-cols-3 md:gap-12">
-          <form className="max-w-[360px]">
-            <h3 className="mb-5 font-semibold">Newsletter</h3>
-            <div className="flex items-center gap-4 border-b border-black pb-2">
-              <input
-                type="email"
-                aria-label="E-mail"
-                placeholder="E-mail"
-                className="min-w-0 flex-1 bg-transparent outline-none placeholder:text-black/55"
-              />
-              <button type="submit" className="font-semibold underline underline-offset-4">
-                M&apos;inscrire
-              </button>
-            </div>
-            <p className="mt-4 text-black/65">Pour ne rien louper de l&apos;actu Lyonnaise</p>
-          </form>
-
-          <div className="border-t border-black pt-4 md:border-t-0 md:pt-0">
-            <h3 className="mb-5 flex items-center justify-between font-semibold">
-              A propos <span className="md:hidden">+</span>
-            </h3>
-            <ul className="hidden space-y-1 text-black/70 md:block">
-              <li>Qui sommes-nous ?</li>
-              <li>Nous événements</li>
-              <li>Local talent</li>
-              <li>Partenariat</li>
-              <li>Nous suivre</li>
-            </ul>
-          </div>
-
-          <div className="border-y border-black py-4 md:border-y-0 md:py-0">
-            <h3 className="mb-5 flex items-center justify-between font-semibold">
-              Infos <span className="md:hidden">+</span>
-            </h3>
-            <ul className="hidden space-y-1 text-black/70 md:block">
-              <li>Articles</li>
-              <li>Contact</li>
-              <li>Nos services</li>
-              <li>La manifeste</li>
-              <li>Confidentialité</li>
-            </ul>
-          </div>
-        </div>
-
-        <p className="mt-12 text-center text-xs text-black/55">@Locta</p>
-      </div>
-
-      <div className="mt-10 hidden bg-black py-3 text-center text-xs font-semibold text-white underline underline-offset-4 md:block">
-        Découvrir l&apos;agence +
-      </div>
-    </footer>
-  );
-}
-
 export default function Page() {
   const [selectedFilter, setSelectedFilter] = useState<(typeof filters)[number]>("Tout voir");
   const [currentPage, setCurrentPage] = useState(1);
@@ -318,7 +238,7 @@ export default function Page() {
 
   return (
     <main className="bg-white text-black">
-      <section className="px-4 pb-8 pt-10 md:px-10 md:pb-12 md:pt-20">
+      <section className="px-4 pb-0 pt-10 md:px-10 md:pt-20">
         <div className="mx-auto max-w-[1440px]">
           <header className="mb-7 grid gap-6 md:mb-8 md:grid-cols-12 md:items-end">
             <h1 className="text-[42px] font-semibold uppercase leading-[0.9] tracking-[-0.03em] md:col-span-6 md:text-[76px]">
@@ -362,9 +282,10 @@ export default function Page() {
         </div>
       </section>
 
-      <SocialSection />
-      <LocalStats />
-      <PageFooter />
+      <div className="mt-4 md:mt-8">
+        <SocialSection />
+      </div>
+      <StatsSection />
     </main>
   );
 }

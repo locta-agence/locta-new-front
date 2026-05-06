@@ -10,7 +10,6 @@ export default function ConditionalFooter() {
   // Pages sans footer global
   const isEventDetail =
     pathname.startsWith("/media/evenement/") && pathname !== "/media/evenement";
-  const hasPageFooter = pathname === "/media/local-talent";
 
   if (isEventDetail) return null;
 
