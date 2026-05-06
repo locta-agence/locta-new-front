@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import SocialSection from "@/app/components/SocialSection";
-import StatsSection from "@/app/components/StatsSection";
 import { talents, type Talent } from "@/data/talents";
 
 const filters = ["Tout voir", ...Array.from(new Set(talents.flatMap((t) => t.type)))];
@@ -296,7 +295,6 @@ export default function Page() {
       <div className="mt-4 md:mt-8">
         <SocialSection />
       </div>
-      <StatsSection />
     </main>
   );
 }

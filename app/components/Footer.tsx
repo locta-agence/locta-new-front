@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import StatsSection from "./StatsSection";
 
 const apropos = [
   { label: "Qui sommes-nous ?", href: "/media/a-propos" },
@@ -19,6 +20,7 @@ export default function Footer() {
 
   return (
     <footer>
+      <StatsSection />
       <div className="bg-white px-6 md:px-10 pt-8 md:pt-12 pb-8 md:pb-10">
         <p
           className="font-semibold uppercase text-black leading-none mb-8 md:mb-12 w-full whitespace-nowrap text-center"

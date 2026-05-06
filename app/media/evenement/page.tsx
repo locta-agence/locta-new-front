@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import SocialSection from "@/app/components/SocialSection";
 import { useMemo, useState, type CSSProperties } from "react";
 import { events } from "@/data/events";
 
@@ -149,6 +150,7 @@ export default function Page() {
           </div>
         </section>
       </div>
+      <SocialSection />
     </main>
   );
 }

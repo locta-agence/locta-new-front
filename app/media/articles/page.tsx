@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState, type CSSProperties } from "react";
 import { blogArticles, type BlogArticle, type BlogCategory } from "@/data/blogArticles";
+import SocialSection from "@/app/components/SocialSection";
 
 const headingStyle: CSSProperties = {
   fontWeight: 600,
@@ -162,6 +163,7 @@ export default function Page() {
           </section>
         )}
       </div>
+      <SocialSection />
     </main>
   );
 }

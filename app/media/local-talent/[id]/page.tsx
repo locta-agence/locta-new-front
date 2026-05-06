@@ -3,7 +3,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SocialSection from "@/app/components/SocialSection";
-import StatsSection from "@/app/components/StatsSection";
 import { events } from "@/data/events";
 import { talents, type Talent } from "@/data/talents";
 
@@ -327,7 +326,6 @@ export default async function TalentPage({
       <div className="mt-4 md:mt-8">
         <SocialSection />
       </div>
-      <StatsSection />
     </main>
   );
 }

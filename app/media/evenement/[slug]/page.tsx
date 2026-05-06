@@ -5,8 +5,8 @@ import { notFound } from "next/navigation";
 import type { CSSProperties, ReactNode } from "react";
 import { events, getEventBySlug, getOtherEvents } from "@/data/events";
 import SocialSection from "@/app/components/SocialSection";
-import StatsSection from "@/app/components/StatsSection";
-import EventContactForm from "./EventContactForm";
+import Footer from "@/app/components/Footer";
+import ContactForm from "@/app/components/ContactForm";
 
 const headingStyle: CSSProperties = {
   fontFamily: 'var(--Heading, "Armin Soft")',
@@ -284,127 +284,9 @@ export default async function EventDetailPage({
           </Link>
         ))}
       </section>
-
-      {/* ── CONTACT ───────────────────────────────────────────── */}
-      <section
-        className="flex items-start gap-[70px] px-(--margin-margin,24px) pb-[80px] pt-[60px]"
-      >
-        {/* gauche */}
-        <div className="flex flex-1 flex-col items-start gap-[24px]" style={{ minWidth: 0 }}>
-          <h2
-            className="uppercase leading-none"
-            style={{ ...headingStyle, fontWeight: 600, fontSize: "72px" }}
-          >
-            Un projet ?{"\n"}Un évènement ?{"\n"}Contactez-nous
-          </h2>
-          <p className="text-[16px] leading-normal" style={textStyle}>
-            Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor.
-            Ut elementum vulputate vivamus varius hac. Lorem ipsum dolor sit amet consectetur.
-            Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.
-          </p>
-          <Link
-            href="/media/contact"
-            className="border-b border-black pb-px text-[14px] hover:opacity-60"
-            style={textStyle}
-          >
-            Nous découvrir
-          </Link>
-        </div>
-
-        {/* droite */}
-        <div className="flex flex-1 flex-col items-start px-[60px]" style={{ minWidth: 0 }}>
-          <EventContactForm />
-        </div>
-      </section>
-
-      {/* ── RÉSEAUX SOCIAUX ───────────────────────────────────── */}
+      <ContactForm />
       <SocialSection />
-
-      {/* ── CHIFFRES ──────────────────────────────────────────── */}
-      <StatsSection
-        stats={detail.stats.map((stat) => ({
-          number: stat.value,
-          label: stat.label,
-        }))}
-      />
-
-      {/* ── FOOTER ────────────────────────────────────────────── */}
-      <footer className="flex flex-col items-center gap-[64px] pt-[40px]">
-        {/* grand titre */}
-        <div className="w-full px-(--margin-margin,24px)">
-          <h3
-            className="w-full uppercase leading-none tracking-[-0.02em]"
-            style={{ ...headingStyle, fontWeight: 600, fontSize: "clamp(36px, 6vw, 72px)" }}
-          >
-            LOCTA MÉDIA INDÉPENDANT LYONNAIS
-          </h3>
-        </div>
-
-        {/* colonnes */}
-        <div className="flex w-full items-start">
-          {/* Newsletter */}
-          <div className="flex flex-1 flex-col items-center justify-between gap-[16px]" style={{ minWidth: 0 }}>
-            <p className="text-[16px] font-semibold" style={headingStyle}>Newsletter</p>
-            <div className="flex items-end gap-[12px]">
-              <div className="w-[210px] border-b border-black pb-[6px] px-[4px]">
-                <p className="text-[14px]" style={headingStyle}>E-mail</p>
-              </div>
-              <div className="border-b border-black">
-                <p className="text-[14px] font-semibold" style={headingStyle}>M&apos;inscrire</p>
-              </div>
-            </div>
-            <p className="text-[14px]" style={headingStyle}>Pour ne rien louper de l&apos;actu Lyonnaise</p>
-          </div>
-
-          {/* À propos */}
-          <div className="flex flex-1 flex-col items-center gap-[12px]" style={{ minWidth: 0 }}>
-            <p className="text-[16px] font-semibold" style={headingStyle}>À propos</p>
-            {[
-              { label: "Qui sommes-nous ?", href: "/media/a-propos" },
-              { label: "Nos évènements", href: "/media/evenement" },
-              { label: "Local talent", href: "/media/local-talent" },
-              { label: "Partenariat", href: "/media/partenariat" },
-              { label: "Nous suivre", href: "/media/contact" },
-            ].map((l) => (
-              <Link key={l.href} href={l.href} className="text-[14px] hover:underline" style={headingStyle}>
-                {l.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Infos */}
-          <div className="flex flex-1 flex-col items-center gap-[12px]" style={{ minWidth: 0 }}>
-            <p className="text-[16px] font-semibold" style={headingStyle}>Infos</p>
-            {[
-              { label: "Articles", href: "/media/articles" },
-              { label: "Contact", href: "/media/contact" },
-              { label: "Nos services", href: "/media/contact" },
-              { label: "Le manifeste", href: "/media/a-propos" },
-              { label: "Confidentialité", href: "/media/contact" },
-            ].map((l) => (
-              <Link key={l.label} href={l.href} className="text-[14px] hover:underline" style={headingStyle}>
-                {l.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* copyright */}
-        <p className="text-[14px]" style={headingStyle}>©Locta</p>
-
-        {/* CTA agence */}
-        <Link
-          href="/agence"
-          className="flex w-full items-center justify-center bg-black py-[12px]"
-        >
-          <span
-            className="border-b border-white pb-px text-[14px] font-semibold text-white"
-            style={headingStyle}
-          >
-            Découvrir l&apos;agence →
-          </span>
-        </Link>
-      </footer>
+      <Footer />
     </div>
   );
 }
