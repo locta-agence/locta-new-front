@@ -4,12 +4,12 @@ import { useState } from "react";
 import SocialSection from "../../components/SocialSection";
 import ChiffresSection from "../../components/ChiffresSection";
 
-const img1 = "https://www.figma.com/api/mcp/asset/d4db4cd7-86ae-4e25-8d0d-0ce7bd5038aa";
-const img2 = "https://www.figma.com/api/mcp/asset/a10f70eb-abe2-4da2-bd0f-0a1d7baf3b6c";
-const img3 = "https://www.figma.com/api/mcp/asset/61767fe7-d320-4088-82a3-de5e2d557855";
-const img4 = "https://www.figma.com/api/mcp/asset/b4e50717-7f92-4c71-91cc-a260f504d97c";
-const img5 = "https://www.figma.com/api/mcp/asset/2d9c99c6-cf4c-401b-b95c-7d824441b380";
-const img6 = "https://www.figma.com/api/mcp/asset/bc244157-b99a-4bfc-b536-397d4af62a16";
+const img1 = "/images/agence/agence-proj-1.jpg";
+const img2 = "/images/agence/agence-proj-2.jpg";
+const img3 = "/images/agence/agence-scroll-1.jpg";
+const img4 = "/images/agence/agence-scroll-2.jpg";
+const img5 = "/images/agence/agence-scroll-3.jpg";
+const img6 = "/images/agence/agence-scroll-4.jpg";
 
 const h: React.CSSProperties = { fontFamily: 'var(--Heading, "Armin Soft")' };
 const t: React.CSSProperties = { fontFamily: 'var(--Text, "Armin Soft")' };

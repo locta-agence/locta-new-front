@@ -4,11 +4,11 @@ import { useState } from "react";
 import SocialSection from "../../components/SocialSection";
 import ChiffresSection from "../../components/ChiffresSection";
 
-const expertiseImg = "https://www.figma.com/api/mcp/asset/827c59c2-de32-4cca-a829-35507e3506ef";
-const scrollImg1 = "https://www.figma.com/api/mcp/asset/ed3d7bb8-a12c-4db7-9c34-9fed62011195";
-const scrollImg2 = "https://www.figma.com/api/mcp/asset/8c03369d-cb7f-489a-82f8-66f410456bf9";
-const scrollImg3 = "https://www.figma.com/api/mcp/asset/ebe05967-cc2d-4a6d-8a7b-c1382aec063a";
-const scrollImg4 = "https://www.figma.com/api/mcp/asset/0c273c1c-7c6e-4bbd-96a4-4319b9f114d5";
+const expertiseImg = "/images/agence/agence-expertise.jpg";
+const scrollImg1 = "/images/agence/agence-scroll-1.jpg";
+const scrollImg2 = "/images/agence/agence-scroll-2.jpg";
+const scrollImg3 = "/images/agence/agence-scroll-3.jpg";
+const scrollImg4 = "/images/agence/agence-scroll-4.jpg";
 
 const h: React.CSSProperties = { fontFamily: 'var(--Heading, "Armin Soft")' };
 const t: React.CSSProperties = { fontFamily: 'var(--Text, "Armin Soft")' };

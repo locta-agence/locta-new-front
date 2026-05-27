@@ -2,13 +2,13 @@ import Link from "next/link";
 import SocialSection from "../components/SocialSection";
 import ChiffresSection from "../components/ChiffresSection";
 
-const heroImg = "https://www.figma.com/api/mcp/asset/9b1bb99e-01fd-43f1-b605-3fafa08f3204";
-const parallaxImg = "https://www.figma.com/api/mcp/asset/001f1ce0-3776-4654-ad15-6e1baec7c464";
-const proj1 = "https://www.figma.com/api/mcp/asset/5261cc20-4cb9-44fb-b597-ebf245f6dea1";
-const proj2 = "https://www.figma.com/api/mcp/asset/63f4a0b9-854f-4766-a779-348843328e89";
-const proj3 = "https://www.figma.com/api/mcp/asset/ff6b10db-84e1-4a29-adab-b27c228f3cc0";
-const proj4 = "https://www.figma.com/api/mcp/asset/945da69c-d7c6-45e9-8787-9df9412a8522";
-const proj5 = "https://www.figma.com/api/mcp/asset/0ce451a8-9a70-4a4d-948e-92b4a5f65906";
+const heroImg = "/images/agence/agence-hero.jpg";
+const parallaxImg = "/images/agence/agence-parallax.jpg";
+const proj1 = "/images/agence/agence-proj-1.jpg";
+const proj2 = "/images/agence/agence-proj-2.jpg";
+const proj3 = "/images/agence/agence-proj-3.jpg";
+const proj4 = "/images/agence/agence-proj-4.jpg";
+const proj5 = "/images/agence/agence-parallax.jpg";
 
 const h: React.CSSProperties = { fontFamily: 'var(--Heading, "Armin Soft")' };
 const t: React.CSSProperties = { fontFamily: 'var(--Text, "Armin Soft")' };
@@ -21,17 +21,6 @@ const services = [
   { title: "Organisation et/ou Reportage évènement", desc: "Conception, organisation et couverture photo/vidéo de vos évènements." },
 ];
 
-const projectRows: { img: string; label: string; size?: "large" | "small" }[][] = [
-  [
-    { img: proj2, label: "Nom du talent", size: "small" },
-    { img: proj1, label: "Nom du talent", size: "large" },
-  ],
-  [
-    { img: proj3, label: "Nom du talent", size: "large" },
-    { img: proj4, label: "Nom du talent", size: "small" },
-    { img: proj5, label: "Nom du talent", size: "large" },
-  ],
-];
 
 export default function AgencePage() {
   return (

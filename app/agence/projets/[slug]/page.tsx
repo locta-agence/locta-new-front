@@ -2,10 +2,10 @@ import Link from "next/link";
 import SocialSection from "../../../components/SocialSection";
 import ChiffresSection from "../../../components/ChiffresSection";
 
-const articleImg = "https://www.figma.com/api/mcp/asset/94fedd3c-066f-4ab8-9922-cc346d359486";
-const talent1 = "https://www.figma.com/api/mcp/asset/47f4c5e0-0d35-4a63-8719-a8c05a577451";
-const talent2 = "https://www.figma.com/api/mcp/asset/a20257ee-8305-4134-907e-b2fceda8e592";
-const talent3 = "https://www.figma.com/api/mcp/asset/6af51310-caaa-49fd-97d8-74294e32cea3";
+const articleImg = "/images/agence/agence-parallax.jpg";
+const talent1 = "/images/agence/agence-proj-3.jpg";
+const talent2 = "/images/agence/agence-proj-4.jpg";
+const talent3 = "/images/agence/agence-expertise.jpg";
 
 const h: React.CSSProperties = { fontFamily: 'var(--Heading, "Armin Soft")' };
 const t: React.CSSProperties = { fontFamily: 'var(--Text, "Armin Soft")' };
