@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
 
-import AgenceSocialSection from "../components/AgenceSocialSection";
+import SocialSection from "../../components/SocialSection";
+import ChiffresSection from "../../components/ChiffresSection";
 
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_ACCESS_KEY =
@@ -260,7 +261,8 @@ export default function AgenceContactPage() {
         <div className="flex justify-center md:col-span-2" />
       </div>
 
-      <AgenceSocialSection />
+      <SocialSection variant="dark" />
+      <ChiffresSection variant="dark" />
     </main>
   );
 }

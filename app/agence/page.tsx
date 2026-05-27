@@ -1,5 +1,6 @@
 import Link from "next/link";
-import AgenceSocialSection from "./components/AgenceSocialSection";
+import SocialSection from "../components/SocialSection";
+import ChiffresSection from "../components/ChiffresSection";
 
 const heroImg = "https://www.figma.com/api/mcp/asset/9b1bb99e-01fd-43f1-b605-3fafa08f3204";
 const parallaxImg = "https://www.figma.com/api/mcp/asset/001f1ce0-3776-4654-ad15-6e1baec7c464";
@@ -148,7 +149,8 @@ export default function AgencePage() {
         </div>
       </section>
 
-      <AgenceSocialSection />
+      <SocialSection variant="dark" />
+      <ChiffresSection variant="dark" />
     </div>
   );
 }

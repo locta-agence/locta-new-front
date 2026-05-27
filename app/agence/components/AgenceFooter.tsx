@@ -3,14 +3,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 const h: React.CSSProperties = { fontFamily: 'var(--Heading, "Armin Soft")' };
-const t: React.CSSProperties = { fontFamily: 'var(--Text, "Armin Soft")' };
-
-const stats = [
-  { n: "2023", l: "Création de l'agence" },
-  { n: "2", l: "Membres de l'agence" },
-  { n: "4", l: "Projets réalisés" },
-  { n: "1200", l: "Personnes qui nous suivent" },
-];
 
 const aProposLinks = ["Qui sommes-nous ?", "Nos évènements", "Local talent", "Partenariat", "Nous suivre"];
 const infosLinks = ["Articles", "Contact", "Nos services", "Le manifeste", "Confidentialité"];
@@ -20,25 +12,6 @@ export default function AgenceFooter() {
 
   return (
     <footer style={{ background: "#000", color: "#fff" }}>
-      {/* Stats bar */}
-      <div style={{
-        borderTop: "1px solid #fff",
-        borderBottom: "1px solid #fff",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "40px 90px",
-        flexWrap: "wrap",
-        gap: "24px",
-      }}>
-        {stats.map(({ n, l }) => (
-          <div key={n} style={{ display: "flex", gap: "8px", alignItems: "flex-end" }}>
-            <span style={{ ...h, fontSize: "32px", fontWeight: 600, lineHeight: "100%", textTransform: "uppercase" }}>{n}</span>
-            <span style={{ ...t, fontSize: "16px", fontWeight: 300, lineHeight: "normal" }}>{l}</span>
-          </div>
-        ))}
-      </div>
-
       {/* Main footer */}
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "40px", paddingTop: "40px" }}>
         {/* Logo */}

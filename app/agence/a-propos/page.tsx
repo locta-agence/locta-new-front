@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import AgenceSocialSection from "../components/AgenceSocialSection";
+import SocialSection from "../../components/SocialSection";
+import ChiffresSection from "../../components/ChiffresSection";
 
 export default function AgenceAProposPage() {
   return (
@@ -183,7 +184,8 @@ export default function AgenceAProposPage() {
         </div>
       </div>
 
-      <AgenceSocialSection />
+      <SocialSection variant="dark" />
+      <ChiffresSection variant="dark" />
     </main>
   );
 }

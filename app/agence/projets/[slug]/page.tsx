@@ -1,5 +1,6 @@
 import Link from "next/link";
-import AgenceSocialSection from "../../components/AgenceSocialSection";
+import SocialSection from "../../../components/SocialSection";
+import ChiffresSection from "../../../components/ChiffresSection";
 
 const articleImg = "https://www.figma.com/api/mcp/asset/94fedd3c-066f-4ab8-9922-cc346d359486";
 const talent1 = "https://www.figma.com/api/mcp/asset/47f4c5e0-0d35-4a63-8719-a8c05a577451";
@@ -126,7 +127,8 @@ export default async function ProjetDetailPage({ params }: { params: Promise<{ s
         </div>
       </section>
 
-      <AgenceSocialSection />
+      <SocialSection variant="dark" />
+      <ChiffresSection variant="dark" />
     </div>
   );
 }

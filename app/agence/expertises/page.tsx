@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import AgenceSocialSection from "../components/AgenceSocialSection";
+import SocialSection from "../../components/SocialSection";
+import ChiffresSection from "../../components/ChiffresSection";
 
 const expertiseImg = "https://www.figma.com/api/mcp/asset/827c59c2-de32-4cca-a829-35507e3506ef";
 const scrollImg1 = "https://www.figma.com/api/mcp/asset/ed3d7bb8-a12c-4db7-9c34-9fed62011195";
@@ -201,7 +202,8 @@ export default function ExpertisesPage() {
         </div>
       </section>
 
-      <AgenceSocialSection />
+      <SocialSection variant="dark" />
+      <ChiffresSection variant="dark" />
     </div>
   );
 }

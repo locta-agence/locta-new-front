@@ -8,24 +8,7 @@ const stats = [
   { number: "1200", label: "Personnes qui nous suivent" },
 ];
 
-const numberStyle: React.CSSProperties = {
-  fontFamily: 'var(--Heading, "Armin Soft")',
-  fontSize: "20px",
-  fontWeight: 600,
-  lineHeight: "100%",
-  textTransform: "uppercase",
-  color: "#000",
-};
-
-const labelStyle: React.CSSProperties = {
-  fontFamily: 'var(--Text, "Armin Soft")',
-  fontSize: "16px",
-  fontWeight: 300,
-  lineHeight: "normal",
-  color: "#000",
-};
-
-export default function ChiffresSection() {
+export default function ChiffresSection({ variant = "light" }: { variant?: "light" | "dark" } = {}) {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -35,8 +18,28 @@ export default function ChiffresSection() {
     return () => clearInterval(id);
   }, []);
 
+  const fg = variant === "dark" ? "#fff" : "#000";
+  const bg = variant === "dark" ? "#000" : "transparent";
+
+  const numberStyle: React.CSSProperties = {
+    fontFamily: 'var(--Heading, "Armin Soft")',
+    fontSize: "20px",
+    fontWeight: 600,
+    lineHeight: "100%",
+    textTransform: "uppercase",
+    color: fg,
+  };
+
+  const labelStyle: React.CSSProperties = {
+    fontFamily: 'var(--Text, "Armin Soft")',
+    fontSize: "16px",
+    fontWeight: 300,
+    lineHeight: "normal",
+    color: fg,
+  };
+
   return (
-    <div style={{ borderTop: "1px solid #000", borderBottom: "1px solid #000", width: "100%" }}>
+    <div style={{ borderTop: `1px solid ${fg}`, borderBottom: `1px solid ${fg}`, background: bg, width: "100%" }}>
 
       {/* Mobile : un stat à la fois + dots */}
       <div
@@ -59,7 +62,7 @@ export default function ChiffresSection() {
                 border: "none",
                 padding: 0,
                 cursor: "pointer",
-                background: "#000",
+                background: fg,
                 opacity: i === active ? 1 : 0.2,
                 transition: "opacity 0.3s",
               }}
