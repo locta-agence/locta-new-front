@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import StatsSection from "./StatsSection";
+import ChiffresSection from "./ChiffresSection";
 
 const apropos = [
   { label: "Qui sommes-nous ?", href: "/media/a-propos" },
@@ -43,6 +43,7 @@ export default function Footer() {
 
   return (
     <footer>
+      <ChiffresSection />
       {/* Mobile footer */}
       <div className="md:hidden bg-white px-4 pt-10 pb-6 flex flex-col gap-8">
         <p

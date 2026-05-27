@@ -276,7 +276,6 @@ export default function Home() {
       </div>
 
       <SocialSection />
-      <ChiffresSection />
     </div>
   );
 }
