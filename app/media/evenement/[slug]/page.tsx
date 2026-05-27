@@ -57,12 +57,9 @@ function ArticleCard({
 }) {
   return (
     <div
-      className="relative flex flex-1 flex-col items-start justify-end overflow-hidden"
+      className="relative flex w-full flex-1 flex-col items-start justify-end overflow-hidden min-h-[360px] sm:min-h-[480px] md:min-h-[570px] p-[12px] sm:p-[16px] md:p-[20px] min-w-0 md:min-w-[450px]"
       style={{
         aspectRatio: "300/380",
-        minHeight: "570px",
-        minWidth: "450px",
-        padding: "20px",
         ...containerStyle,
       }}
     >
@@ -78,7 +75,7 @@ function ArticleCard({
       />
       {/* slot haut-gauche */}
       {topLeft && (
-        <div className="absolute left-[20px] top-[20px]">{topLeft}</div>
+        <div className="absolute left-[12px] top-[12px] sm:left-[16px] sm:top-[16px] md:left-[20px] md:top-[20px]">{topLeft}</div>
       )}
       {/* slot bas-gauche */}
       {bottomLeft && (
@@ -115,7 +112,7 @@ export default async function EventDetailPage({
 
       {/* ── FIL D'ARIANE ──────────────────────────────────────── */}
       <nav
-        className="flex items-center gap-[12px] px-(--margin-margin,24px) py-[20px] text-[16px]"
+        className="flex flex-wrap items-center gap-x-[12px] gap-y-[4px] px-(--margin-margin,24px) py-[20px] text-[14px] sm:text-[16px]"
         style={textStyle}
       >
         <Link href="/" className="hover:underline">Accueil</Link>
@@ -131,11 +128,9 @@ export default async function EventDetailPage({
           src={detail.heroImage}
           priority
           containerStyle={{
-            aspectRatio: "16 / 6",
-            minHeight: "0",
-            minWidth: "0",
+            aspectRatio: "16 / 9",
             width: "100%",
-            padding: "16px",
+            minHeight: "320px",
           }}
           topLeft={
             <div className="flex items-center gap-[8px]">
@@ -153,13 +148,13 @@ export default async function EventDetailPage({
           bottomLeft={
             <div className="flex flex-col gap-[8px]">
               <p
-                className="text-[32px] uppercase leading-none text-white"
+                className="text-[22px] uppercase leading-none text-white sm:text-[28px] md:text-[32px]"
                 style={{ ...headingStyle, fontWeight: 600 }}
               >
                 {event.titre}
               </p>
               <p
-                className="text-[18px] uppercase leading-none text-white"
+                className="text-[14px] uppercase leading-none text-white sm:text-[16px] md:text-[18px]"
                 style={{ ...headingStyle, fontWeight: 300 }}
               >
                 Lyon
@@ -175,11 +170,11 @@ export default async function EventDetailPage({
 
         const textBlock = (
           <div
-            className="flex flex-1 flex-col items-center justify-center gap-[32px] py-[60px] text-center"
+            className="flex w-full flex-1 flex-col items-center justify-center gap-[16px] py-[24px] text-center sm:gap-[24px] sm:py-[40px] md:gap-[32px] md:py-[60px]"
             style={{ minWidth: 0 }}
           >
             <p
-              className="text-[56px] uppercase leading-none"
+              className="text-[32px] uppercase leading-none sm:text-[42px] md:text-[56px]"
               style={{ ...headingStyle, fontWeight: 600 }}
             >
               {row.heading}
@@ -201,7 +196,7 @@ export default async function EventDetailPage({
         return (
           <section
             key={i}
-            className="flex flex-wrap items-center gap-(--gutter,8px) px-(--margin-margin,24px) py-(--gutter,8px)"
+            className="flex flex-col md:flex-row md:flex-wrap items-center gap-(--gutter,8px) px-(--margin-margin,24px) py-(--gutter,8px)"
           >
             {row.textFirst ? (
               <>{textBlock}{imageBlock}</>
@@ -213,7 +208,7 @@ export default async function EventDetailPage({
       })}
 
       {/* ── GALERIE ────────────────────────────────────────────── */}
-      <section className="flex flex-wrap items-start gap-(--gutter,8px) px-(--margin-margin,24px)">
+      <section className="flex flex-col md:flex-row md:flex-wrap items-start gap-(--gutter,8px) px-(--margin-margin,24px)">
         {detail.gallery.map((src, i) => (
           <ArticleCard
             key={`${src}-${i}`}
@@ -224,18 +219,18 @@ export default async function EventDetailPage({
       </section>
 
       {/* ── NOS DERNIERS ÉVÉNEMENTS ───────────────────────────── */}
-      <section className="flex flex-col items-end justify-center px-(--margin-margin,24px) pb-[40px] pt-[60px]">
+      <section className="flex flex-col items-end justify-center px-(--margin-margin,24px) pb-[24px] pt-[40px] sm:pb-[40px] sm:pt-[60px]">
         {/* en-tête */}
-        <div className="mb-0 flex w-full items-end justify-between">
+        <div className="mb-0 flex w-full flex-col gap-[16px] items-start sm:flex-row sm:items-end sm:justify-between">
           <p
-            className="text-[56px] uppercase leading-none"
+            className="text-[32px] uppercase leading-none sm:text-[42px] md:text-[56px]"
             style={{ ...headingStyle, fontWeight: 600 }}
           >
             Nos derniers évènements
           </p>
           <Link
             href="/media/evenement"
-            className="border-b border-black pb-[2px] text-[18px] uppercase leading-none hover:opacity-60"
+            className="border-b border-black pb-[2px] text-[16px] uppercase leading-none hover:opacity-60 sm:text-[18px]"
             style={{ ...headingStyle, fontWeight: 600 }}
           >
             Tout voir
@@ -244,13 +239,12 @@ export default async function EventDetailPage({
       </section>
 
       {/* cartes */}
-      <section className="flex flex-wrap items-start gap-(--gutter,8px) px-(--margin-margin,24px)">
+      <section className="flex flex-col md:flex-row md:flex-wrap items-start gap-(--gutter,8px) px-(--margin-margin,24px)">
         {others.map((ev) => (
           <Link
             key={ev.id}
             href={`/media/evenement/${ev.slug}`}
-            className="group flex-1"
-            style={{ minWidth: "450px" }}
+            className="group flex w-full flex-1 md:min-w-[450px]"
           >
             <ArticleCard
               src={ev.image}
@@ -267,13 +261,13 @@ export default async function EventDetailPage({
               bottomLeft={
                 <div className="flex flex-col gap-[8px]">
                   <p
-                    className="w-full text-[32px] uppercase leading-none text-white transition-opacity group-hover:opacity-80"
+                    className="w-full text-[22px] uppercase leading-none text-white transition-opacity group-hover:opacity-80 sm:text-[28px] md:text-[32px]"
                     style={{ ...headingStyle, fontWeight: 600 }}
                   >
                     {ev.titre}
                   </p>
                   <p
-                    className="w-full text-[18px] uppercase leading-none text-white"
+                    className="w-full text-[14px] uppercase leading-none text-white sm:text-[16px] md:text-[18px]"
                     style={{ ...headingStyle, fontWeight: 300 }}
                   >
                     {formatDate(ev.date)}
