@@ -122,10 +122,10 @@ export default function ScrollGallery() {
           </h2>
           <div className="flex flex-col gap-4" style={{ maxWidth: "300px" }}>
             <p style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "14px", fontWeight: 300, color: "#000" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Créer et inspirer.
             </p>
             <p style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "14px", fontWeight: 300, color: "#000" }}>
-              Sed do eiusmod tempor niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Média culturel et lyonnais.
             </p>
           </div>
         </div>
@@ -232,10 +232,10 @@ export default function ScrollGallery() {
               </h2>
               <div className="flex flex-col gap-4" style={{ maxWidth: "300px" }}>
                 <p style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "14px", fontWeight: 300, color: "#000" }}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                 Créer et inspirer.
                 </p>
                 <p style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "14px", fontWeight: 300, color: "#000" }}>
-                  Sed do eiusmod tempor niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  Média culturel et lyonnais.
                 </p>
               </div>
             </div>

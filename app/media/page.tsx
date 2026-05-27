@@ -82,7 +82,7 @@ export default function Home() {
               alignSelf: "stretch",
             }}
           >
-            Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.
+            Dans la continuité des valeurs de Locta, nous mettons en avant des artistes émergent de la culture lyonnaise.
           </p>
           <Link
             href="#"
@@ -146,14 +146,14 @@ export default function Home() {
           }}
         >
           <span style={{ display: "inline-flex", padding: "4px 8px", border: "1px solid #fff", fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "12px", fontWeight: 600, color: "#fff", textTransform: "uppercase" }}>
-            Event
+            Mode
           </span>
           <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
             <p style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "20px", fontWeight: 600, color: "#fff", textTransform: "uppercase", lineHeight: "100%" }}>
-              Lorem ipsum dolor
+              Les sorties sapes
             </p>
             <p style={{ fontFamily: 'var(--Text, "Armin Soft")', fontSize: "14px", fontWeight: 300, color: "#fff", lineHeight: "normal" }}>
-              Lorem ipsum dolor sit amet consectetur.
+              Le point sur les sorties dans le monde de la mode cette semaine
             </p>
           </div>
         </div>
@@ -174,14 +174,14 @@ export default function Home() {
           }}
         >
           <span style={{ display: "inline-flex", padding: "4px 8px", border: "1px solid #fff", fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "12px", fontWeight: 600, color: "#fff", textTransform: "uppercase" }}>
-            Event
+            Musique
           </span>
           <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
             <p style={{ fontFamily: 'var(--Heading, "Armin Soft")', fontSize: "20px", fontWeight: 600, color: "#fff", textTransform: "uppercase", lineHeight: "100%" }}>
-              Lorem ipsum dolor
+              Drink more water
             </p>
             <p style={{ fontFamily: 'var(--Text, "Armin Soft")', fontSize: "14px", fontWeight: 300, color: "#fff", lineHeight: "normal" }}>
-              Lorem ipsum dolor sit amet consectetur.
+              Rayaane et Brownelims ont présenté leur projet Drink More Water
             </p>
           </div>
         </div>
@@ -254,7 +254,7 @@ export default function Home() {
             À propos du média
           </p>
           <p style={{ fontFamily: 'var(--Text, "Armin Soft")', fontSize: "var(--Text-Small, 14px)", fontWeight: 300, lineHeight: "normal", alignSelf: "stretch", color: "#000" }}>
-            Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.
+            Locta est un média développé au sein d&apos;une association culturelle lyonnaise, dédié à la mise en avant de la scène urbaine locale à travers des productions vidéo, photographiques et éditoriales. Actif principalement en ligne et sur les réseaux sociaux, Locta propose des contenus réguliers qui explorent la musique, la mode, le streetwear et l&apos;art.
           </p>
           <Link
             href="#"

@@ -64,7 +64,7 @@ export default function ProjetsPage() {
               Nos projets
             </h1>
             <p style={{ ...t, fontSize: "14px", fontWeight: 300, lineHeight: "normal", color: "#fff", maxWidth: "420px" }}>
-              Lorem ipsum dolor sit amet consectetur. Id sit tellus ultrices magna. Sagittis volutpat non nec senectus odio.
+              Découvrez nos réalisations : sites web, direction artistique, captation photo &amp; vidéo, communication et reportages évènements.
             </p>
           </div>
           {/* Filters */}

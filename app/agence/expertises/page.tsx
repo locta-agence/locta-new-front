@@ -14,11 +14,11 @@ const h: React.CSSProperties = { fontFamily: 'var(--Heading, "Armin Soft")' };
 const t: React.CSSProperties = { fontFamily: 'var(--Text, "Armin Soft")' };
 
 const services = [
-  { title: "Création de sites web", desc: "Lorem ipsum - Lorem ipsum - Lorem ipsum - Lorem ipsum" },
-  { title: "Direction artistique", desc: "Lorem ipsum - Lorem ipsum - Lorem ipsum - Lorem ipsum" },
-  { title: "Captation photo et vidéo", desc: "Lorem ipsum - Lorem ipsum - Lorem ipsum - Lorem ipsum" },
-  { title: "Communication", desc: "Lorem ipsum - Lorem ipsum - Lorem ipsum - Lorem ipsum" },
-  { title: "Organisation et/ou Reportage évènement", desc: "Lorem ipsum - Lorem ipsum - Lorem ipsum - Lorem ipsum" },
+  { title: "Création de sites web", desc: "Conception et développement de sites sur mesure, modernes et performants." },
+  { title: "Direction artistique", desc: "Identité visuelle, branding et direction créative pour vos projets." },
+  { title: "Captation photo et vidéo", desc: "Shooting photo professionnel et production vidéo pour valoriser vos contenus." },
+  { title: "Communication", desc: "Stratégie de communication digitale et community management." },
+  { title: "Organisation et/ou Reportage évènement", desc: "Conception, organisation et couverture photo/vidéo de vos évènements." },
 ];
 
 const talents = ["GHOWST3", "KIMANI", "KIWAVE", "ELI", "SIM&ON", "AROBAZZE", "TOM JACOMELLI"];
@@ -41,7 +41,7 @@ export default function ExpertisesPage() {
             Expertises<br />et services
           </h1>
           <p style={{ ...t, fontSize: "14px", fontWeight: 300, lineHeight: "normal", color: "#fff", maxWidth: "420px" }}>
-            Lorem ipsum dolor sit amet consectetur. Id sit tellus ultrices magna. Sagittis volutpat non nec senectus odio. Arcu suspendisse blandit mauris pretium.
+            Locta accompagne artistes et marques avec une expertise créative complète, de la conception à la communication, ancrée dans la scène lyonnaise.
           </p>
         </div>
       </section>
@@ -78,7 +78,7 @@ export default function ExpertisesPage() {
             LOCTA Agence
           </h2>
           <p style={{ ...t, fontSize: "14px", fontWeight: 300, lineHeight: "normal", color: "#fff" }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.{"\n\n"}Sed do eiusmod tempor niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Initialement ancrée dans la culture urbaine, notre démarche s&apos;est naturellement élargie pour embrasser un spectre culturel plus large.{"\n\n"}L&apos;authenticité passe avant l&apos;esthétique, et la communauté avant la performance.
           </p>
         </div>
 
@@ -137,7 +137,7 @@ export default function ExpertisesPage() {
             Un projet ?{"\n"}Un évènement ?{"\n"}Contactez-nous
           </h2>
           <p style={{ ...t, fontSize: "16px", fontWeight: 300, lineHeight: "normal", color: "#fff" }}>
-            Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.
+            Locta accompagne les artistes et les marques dans leur développement et leur visibilité. Une approche sincère, créative et ancrée dans la réalité du terrain.
           </p>
           <Link href="/agence/contact" style={{ ...h, fontSize: "14px", fontWeight: 600, color: "#fff", borderBottom: "1px solid #fff", textDecoration: "none", alignSelf: "flex-start" }}>
             Nous découvrir

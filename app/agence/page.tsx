@@ -48,7 +48,7 @@ export default function AgencePage() {
             Nos services
           </h2>
           <p style={{ ...t, fontSize: "16px", fontWeight: 300, lineHeight: "normal", color: "#fff", maxWidth: "580px" }}>
-            Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.
+            Locta accompagne artistes et marques dans leur développement créatif et leur visibilité, avec une approche sincère, locale et ancrée dans la réalité du terrain.
           </p>
           <Link href="/agence/contact" style={{ ...h, fontSize: "14px", fontWeight: 600, color: "#fff", borderBottom: "1px solid #fff", textDecoration: "none", alignSelf: "flex-start" }}>
             Nous contacter
@@ -82,7 +82,7 @@ export default function AgencePage() {
       <section className="px-4 py-10 md:px-[70px] md:py-[40px]" style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-end", minHeight: "300px" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "810px" }}>
           <p style={{ ...h, fontSize: "clamp(20px, 3.5vw, 56px)", fontWeight: 600, lineHeight: "100%", textTransform: "uppercase", color: "#fff" }}>
-            Lorem ipsum dolor sit amet consectetur. Felis amet ultricies gravida quam tortor. Ut elementum vulputate vivamus varius hac.
+            Locta s&apos;adresse à une génération jeune, curieuse et connectée à la culture. Une génération qui ne se contente pas de consommer, mais qui crée, expérimente et cherche à s&apos;exprimer.
           </p>
           <Link href="/agence/projets" style={{ ...h, fontSize: "14px", fontWeight: 600, color: "#fff", borderBottom: "1px solid #fff", textDecoration: "none", alignSelf: "flex-start" }}>
             Tous les talents
