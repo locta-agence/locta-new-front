@@ -139,9 +139,14 @@ function TalentCard({ talent, index }: { talent: Talent; index: number }) {
             />
           )}
         </div>
-        <p className="mt-1 shrink-0 text-[10px] leading-none text-black/70">
-          {talent.fullname}
-        </p>
+        <div className="mt-2 flex shrink-0 flex-col gap-[4px]">
+          <p className="text-[12px] font-semibold leading-none text-black">
+            {talent.fullname}
+          </p>
+          <p className="text-[12px] leading-tight text-black/70">
+            {talent.type.join(" et ")}
+          </p>
+        </div>
       </Link>
     </article>
   );

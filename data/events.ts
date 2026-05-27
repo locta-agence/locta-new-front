@@ -36,12 +36,12 @@ export const events: Event[] = [
     id: "evt-004",
     slug: "danse-locta-008",
     type: "Danse",
-    image: "/images/events/event_1.jpg",
+    image: "/images/events/51b8f3c849b6ca4bfdd7b463ff07a4817cffc543.jpg",
     titre: "DANSE LOCTA 008",
     date: "2024-07-17",
     description: "Performance de danse contemporaine avec une direction artistique immersive et une scénographie lumineuse.",
     detail: {
-      heroImage: "/images/events/event_1.jpg",
+      heroImage: "/images/events/57192466ffe4793c06acdea91908eb20b3c77227.jpg",
       heroOverlayTitle: "DANSE LOCTA 008",
       detailRows: [
         {
@@ -51,7 +51,7 @@ export const events: Event[] = [
             "Lorem ipsum dolor sit amet consectetur. Id sit tellus ultrices magna. Sagittis volutpat non nec senectus odio. Arcu suspendisse blandit mauris pretium. Leo enim semper eu dignissim at volutpat.",
             "Pellentesque habitant morbi tristique senectus et netus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.",
           ],
-          image: "/images/events/event_portrait.jpg",
+          image: "/images/events/beeb9bba61fc7e58eeabf6a446cdc5f64b22af7b.png",
           textFirst: true,
         },
         {
@@ -61,14 +61,14 @@ export const events: Event[] = [
             "Lorem ipsum dolor sit amet consectetur. Fusce dapibus tellus ac cursus commodo tortor mauris condimentum nibh. Donec ullamcorper nulla non metus auctor fringilla.",
             "Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur.",
           ],
-          image: "/images/events/event_1.jpg",
+          image: "/images/events/51b8f3c849b6ca4bfdd7b463ff07a4817cffc543.jpg",
           textFirst: false,
         },
       ],
       gallery: [
-        "/images/events/event_portrait.jpg",
-        "/images/events/event_1.jpg",
-        "/images/events/event_portrait.jpg",
+        "/images/events/57192466ffe4793c06acdea91908eb20b3c77227.jpg",
+        "/images/events/beeb9bba61fc7e58eeabf6a446cdc5f64b22af7b.png",
+        "/images/events/51b8f3c849b6ca4bfdd7b463ff07a4817cffc543.jpg",
       ],
       stats: [
         { value: "2021", label: "Création de l'agence" },
@@ -82,12 +82,12 @@ export const events: Event[] = [
     id: "evt-001",
     slug: "soiree-locta-2020",
     type: "Concert",
-    image: "/images/events/event_1.jpg",
+    image: "/images/events/57192466ffe4793c06acdea91908eb20b3c77227.jpg",
     titre: "SOIRÉE LOCTA 2020",
     date: "2020-11-14",
     description: "Concert live avec lumière scénographique et ambiance immersive.",
     detail: {
-      heroImage: "/images/events/event_1.jpg",
+      heroImage: "/images/events/beeb9bba61fc7e58eeabf6a446cdc5f64b22af7b.png",
       heroOverlayTitle: "SOIRÉE LOCTA 2020",
       detailRows: [
         {
@@ -97,7 +97,7 @@ export const events: Event[] = [
             "Lorem ipsum dolor sit amet consectetur. Id sit tellus ultrices magna. Sagittis volutpat non nec senectus odio. Arcu suspendisse blandit mauris pretium. Leo enim semper eu dignissim at volutpat.",
             "Pellentesque habitant morbi tristique senectus et netus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.",
           ],
-          image: "/images/events/event_portrait.jpg",
+          image: "/images/events/51b8f3c849b6ca4bfdd7b463ff07a4817cffc543.jpg",
           textFirst: true,
         },
         {
@@ -107,14 +107,14 @@ export const events: Event[] = [
             "Lorem ipsum dolor sit amet consectetur. Fusce dapibus tellus ac cursus commodo tortor mauris condimentum nibh. Donec ullamcorper nulla non metus auctor fringilla.",
             "Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur.",
           ],
-          image: "/images/events/event_1.jpg",
+          image: "/images/events/57192466ffe4793c06acdea91908eb20b3c77227.jpg",
           textFirst: false,
         },
       ],
       gallery: [
-        "/images/events/event_1.jpg",
-        "/images/events/event_portrait.jpg",
-        "/images/events/event_1.jpg",
+        "/images/events/beeb9bba61fc7e58eeabf6a446cdc5f64b22af7b.png",
+        "/images/events/51b8f3c849b6ca4bfdd7b463ff07a4817cffc543.jpg",
+        "/images/events/57192466ffe4793c06acdea91908eb20b3c77227.jpg",
       ],
       stats: [
         { value: "2021", label: "Création de l'agence" },
@@ -128,12 +128,12 @@ export const events: Event[] = [
     id: "evt-002",
     slug: "lorem-ipsum-mode",
     type: "Mode",
-    image: "/images/events/event_portrait.jpg",
+    image: "/images/events/beeb9bba61fc7e58eeabf6a446cdc5f64b22af7b.png",
     titre: "LOREM IPSUM DOLOR",
     date: "2026-05-03",
     description: "Session photo et performance artistique en format intimiste.",
     detail: {
-      heroImage: "/images/events/event_portrait.jpg",
+      heroImage: "/images/events/51b8f3c849b6ca4bfdd7b463ff07a4817cffc543.jpg",
       heroOverlayTitle: "LOREM IPSUM DOLOR",
       detailRows: [
         {
@@ -143,7 +143,7 @@ export const events: Event[] = [
             "Lorem ipsum dolor sit amet consectetur. Id sit tellus ultrices magna. Sagittis volutpat non nec senectus odio.",
             "Arcu suspendisse blandit mauris pretium. Leo enim semper eu dignissim at volutpat.",
           ],
-          image: "/images/events/event_1.jpg",
+          image: "/images/events/57192466ffe4793c06acdea91908eb20b3c77227.jpg",
           textFirst: true,
         },
         {
@@ -153,13 +153,13 @@ export const events: Event[] = [
             "Pellentesque habitant morbi tristique senectus et netus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
             "Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.",
           ],
-          image: "/images/events/event_portrait.jpg",
+          image: "/images/events/beeb9bba61fc7e58eeabf6a446cdc5f64b22af7b.png",
           textFirst: false,
         },
       ],
       gallery: [
-        "/images/events/event_1.jpg",
-        "/images/events/event_portrait.jpg",
+        "/images/events/51b8f3c849b6ca4bfdd7b463ff07a4817cffc543.jpg",
+        "/images/events/57192466ffe4793c06acdea91908eb20b3c77227.jpg",
         "/images/1bf71634184186caa805f3c32ce4e9bbc631740c.jpg",
       ],
       stats: [
@@ -174,12 +174,12 @@ export const events: Event[] = [
     id: "evt-003",
     slug: "lorem-ipsum-theatre",
     type: "Théâtre",
-    image: "/images/events/event_portrait.jpg",
+    image: "/images/events/51b8f3c849b6ca4bfdd7b463ff07a4817cffc543.jpg",
     titre: "LOREM IPSUM DOLOR",
     date: "2026-05-03",
     description: "Expérience scénique contemporaine avec direction artistique marquée.",
     detail: {
-      heroImage: "/images/events/event_portrait.jpg",
+      heroImage: "/images/events/57192466ffe4793c06acdea91908eb20b3c77227.jpg",
       heroOverlayTitle: "LOREM IPSUM DOLOR",
       detailRows: [
         {
@@ -189,7 +189,7 @@ export const events: Event[] = [
             "Lorem ipsum dolor sit amet consectetur. Id sit tellus ultrices magna. Sagittis volutpat non nec senectus odio.",
             "Arcu suspendisse blandit mauris pretium. Leo enim semper eu dignissim at volutpat.",
           ],
-          image: "/images/events/event_1.jpg",
+          image: "/images/events/beeb9bba61fc7e58eeabf6a446cdc5f64b22af7b.png",
           textFirst: true,
         },
         {
@@ -199,14 +199,14 @@ export const events: Event[] = [
             "Pellentesque habitant morbi tristique senectus et netus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
             "Cras mattis consectetur purus sit amet fermentum.",
           ],
-          image: "/images/events/event_portrait.jpg",
+          image: "/images/events/51b8f3c849b6ca4bfdd7b463ff07a4817cffc543.jpg",
           textFirst: false,
         },
       ],
       gallery: [
-        "/images/events/event_portrait.jpg",
-        "/images/events/event_1.jpg",
-        "/images/events/event_portrait.jpg",
+        "/images/events/57192466ffe4793c06acdea91908eb20b3c77227.jpg",
+        "/images/events/beeb9bba61fc7e58eeabf6a446cdc5f64b22af7b.png",
+        "/images/events/51b8f3c849b6ca4bfdd7b463ff07a4817cffc543.jpg",
       ],
       stats: [
         { value: "2021", label: "Création de l'agence" },
